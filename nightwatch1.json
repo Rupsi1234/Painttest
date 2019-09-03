@@ -1,0 +1,83 @@
+{
+    "src_folders": ["./tests/editItem.js"],
+    "output_folder": "./output/reports",
+    "custom_commands_path": [
+        "./utils/custom-commands",
+        "./../Spreadsheet_Automation/utils/custom-functions"
+    ],
+    "page_objects_path": "./pages",
+    "custom_assertions_path": "./utils/custom-assertions",
+    "globals_path": "./environment.js",
+    "live_output": true,
+    "parallel_process_delay": 20,
+    "disable_colors": false,
+    "test_workers": false,
+
+    "selenium":
+    {
+        "start_process": true,
+        "server_path": "./utils/drivers/selenium-server-standalone-3.4.0.jar",
+        "log_path": "",
+        "host": "127.0.0.1",
+        "port": 4444,
+        "cli_args":
+        {
+            "webdriver.chrome.driver": "./utils/drivers/chromedriver.exe",
+            "webdriver.ie.driver": "",
+            "webdriver.gecko.driver": "./utils/drivers/geckodriver.exe"
+        }
+    },
+    "test_settings":
+    {
+        "default":
+        {
+            "launch_url": "http://localhost",
+            "selenium_host": "127.0.0.1",
+            "selenium_port": 4444,
+            "silent": true,
+            "persist_globals": true,
+            "skip_testcases_on_fail": true,
+            "disable_colors": false,
+            "screenshots":
+            {
+                "enabled": false,
+                "path": ""
+            },
+            "test_runner":
+            {
+                "type": "mocha",
+                "options":
+                {
+                    "ui": "bdd",
+                    "reporter": "mochawesome",
+                    "grep":"",
+                    "reporterOptions": {
+                        "reportTitle": "Leonardo Paint reports",
+                         "overwrite": false
+                       
+                    }
+                }
+            },
+            "desiredCapabilities":
+            {
+                "browserName": "chrome",
+                "javascriptEnabled": true,
+                "acceptSslCerts": true,
+                "marionette": true
+            },
+             "globals": {
+                "waitForConditionTimeout": 5000,
+                "retryAssertionTimeout": 5000
+             }
+        },
+        "chrome":
+        {
+            "desiredCapabilities":
+            {
+                "browserName": "chrome",
+                "acceptSslCerts": true,
+                "javascriptEnabled": true
+            }
+        }
+    }
+}

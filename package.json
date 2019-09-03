@@ -1,0 +1,37 @@
+{
+    "author": "Rupsi Chauhan",
+    "dependencies": {
+        "argv": "0.0.2",
+        "asyncawait": "^1.0.6",
+        "chai": "^4.1.2",
+        "csv-load-sync": "^1.0.0",
+        "csv-parse": "^3.2.0",
+        "csv-parser": "^2.1.0",
+        "jimp": "^0.2.28",
+        "jquery": "^3.3.1",
+        "json-file": "^0.1.0",
+        "mocha": "^3.0.2",
+        "mochawesome": "^3.0.2",
+        "nightwatch": "^0.9.21",
+        "nightwatch-vrt": "^0.2.6",
+        "properties-reader": "0.0.16",
+        "read-json-sync": "^2.0.0",
+        "winston": "^3.0.0",
+        "winston-daily-rotate-file": "^3.3.1"
+    },
+    "description": "Leonardo Paint",
+    "devDependencies": {
+        "argv": "0.0.2",
+        "csv-load-sync": "^1.0.0",
+        "json-file": "^0.1.0",
+        "mochawesome": "^3.0.2",
+        "yargs": "^11.0.0"
+    },
+    "license": "ISC",
+    "main": "index.js",
+    "name": "Paint-Automation",
+    "scripts": {
+        "test": "nightwatch -c ./nightwatch.json"
+    },
+    "version": "1.0.0"
+}

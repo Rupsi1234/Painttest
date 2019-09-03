@@ -1,0 +1,7 @@
+output/*
+
+selenium-debug.log
+node_modules/*
+log/*
+logs/*
+package-lock.json

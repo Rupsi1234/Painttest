@@ -1,0 +1,8 @@
+{
+    "url": "http://paint-stg.leonardodls.com",
+    "org" : "leonardo-dev",
+    "username": "qa_automation",
+    "password": "qa_automation",
+    "inputJson": "./testdata/InputData.json",
+    "testDataBaseFolder": "F:/Leonardo Paint/master/LeonardoAutomation/Paint Automation/testdata/"
+}
