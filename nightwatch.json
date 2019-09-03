@@ -61,7 +61,7 @@
             },
             "desiredCapabilities":
             {
-                "browserName": "chrome",
+                "browserName": "firefox",
                 "javascriptEnabled": true,
                 "acceptSslCerts": true,
                 "marionette": true
@@ -71,11 +71,11 @@
                 "retryAssertionTimeout": 5000
              }
         },
-        "chrome":
+        "firefox":
         {
             "desiredCapabilities":
             {
-                "browserName": "chrome",
+                "browserName": "firefox",
                 "acceptSslCerts": true,
                 "javascriptEnabled": true
             }
