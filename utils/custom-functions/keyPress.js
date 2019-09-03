@@ -2,7 +2,7 @@ var util = require('util');
 var events = require('events');
 var fs = require('fs');
 
-var keysData = fs.readFileSync('./../Spreadsheet_Automation/utils/modules/keys.json');
+var keysData = fs.readFileSync('./utils/modules/keys.json');
 
 keysToParse = JSON.parse(keysData, null);
 
