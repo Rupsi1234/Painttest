@@ -3,7 +3,7 @@
     "output_folder": "./output/reports",
     "custom_commands_path": [
         "./utils/custom-commands",
-        "./../Spreadsheet_Automation/utils/custom-functions"
+        "./utils/custom-functions"
     ],
     "page_objects_path": "./pages",
     "custom_assertions_path": "./utils/custom-assertions",
