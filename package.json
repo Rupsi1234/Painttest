@@ -33,7 +33,7 @@
     "main": "index.js",
     "name": "Paint-Automation",
     "scripts": {
-        "test": "nightwatch -c ./nightwatch.json"
+        "test": "nightwatch -c ./nightwatch.json -e chrome"
     },
     "version": "1.0.0"
 }
