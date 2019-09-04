@@ -18,6 +18,6 @@ blocks:
       - name: Download our code
         commands:
         - install-package --update-new google-chrome-stable
-        - chekout
+        - checkout
         - npm install
         - npm test
