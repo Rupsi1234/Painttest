@@ -22,7 +22,7 @@
         "port": 4444,
         "cli_args":
         {
-            "webdriver.chrome.driver": "./node_modules/.bin/chromedriver",
+            "webdriver.chrome.driver": " /home/runner/Painttest/node_modules/chromedriver/lib/chromedriver/chromedriver",
             "webdriver.ie.driver": "",
             "webdriver.gecko.driver": "./utils/drivers/geckodriver.exe"
         }
