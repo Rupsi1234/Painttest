@@ -14,74 +14,74 @@
     "test_workers": false,
 
     "selenium":
-    {
-        "start_process": true,
-        "server_path": "./utils/drivers/selenium-server-standalone-3.4.0.jar",
-        "log_path": "",
-        "host": "127.0.0.1",
-        "port": 4444,
-        "cli_args":
-        {
-            "webdriver.chrome.driver": "./node_modules/chromedriver/lib/chromedriver/chromedriver",
-            "webdriver.ie.driver": "",
-            "webdriver.gecko.driver": "./utils/drivers/geckodriver.exe"
-        }
-    },
-    "test_settings":
-    {
-        "default":
-        {
-            "launch_url": "http://localhost",
-            "selenium_host": "localhost",
-            "selenium_port": 4444,
-            "silent": true,
-            "persist_globals": true,
-            "skip_testcases_on_fail": false,
-            "end_session_on_fail": false,
-            "disable_colors": false,
-            "screenshots":
-            {
-                "enabled": false,
-                "path": ""
-            },
-            "test_runner":
-            {
-                "type": "mocha",
-                "options":
-                {
-                    "ui": "bdd",
-                    "reporter": "mochawesome",
-                    "grep":"",
-                    "reporterOptions": {
-                        "reportTitle": "Leonardo Paint reports",
-                         "overwrite": false
-                       
-                    }
+       {
+           "start_process": true,
+           "server_path": "./utils/drivers/selenium-server-standalone-3.4.0.jar",
+           "log_path": "",
+           "host": "127.0.0.1",
+           "port": 4444,
+           "cli_args":
+           {
+               "webdriver.chrome.driver": "./utils/drivers/chromedriver.exe",
+               "webdriver.ie.driver": "",
+               "webdriver.gecko.driver": "./utils/drivers/geckodriver.exe"
+           }
+       },
+       "test_settings":
+       {
+           "default":
+           {
+               "launch_url": "http://localhost",
+               "selenium_host": "localhost",
+               "selenium_port": 4444,
+               "silent": true,
+               "persist_globals": true,
+               "skip_testcases_on_fail": false,
+               "end_session_on_fail": false,
+               "disable_colors": false,
+               "screenshots":
+               {
+                   "enabled": false,
+                   "path": ""
+               },
+               "test_runner":
+               {
+                   "type": "mocha",
+                   "options":
+                   {
+                       "ui": "bdd",
+                       "reporter": "mochawesome",
+                       "grep":"",
+                       "reporterOptions": {
+                           "reportTitle": "Leonardo Paint reports",
+                            "overwrite": false
+                          
+                       }
+                   }
+               },
+               "desiredCapabilities":
+               {
+                   "browserName": "chrome",
+                 "chromeOptions" : {
+                  "args": [
+                    "--headless"
+             ]}
+               },
+                "globals": {
+                   "waitForConditionTimeout": 5000,
+                   "retryAssertionTimeout": 5000
                 }
-            },
-            "desiredCapabilities":
-            {
-                "browserName": "chrome",
-                "javascriptEnabled": true,
-                "acceptSslCerts": true,
-                "marionette": true
-            },
-             "globals": {
-                "waitForConditionTimeout": 5000,
-                "retryAssertionTimeout": 5000
-             }
-        },
-        "chrome":
-        {
-            "desiredCapabilities":
-            {
-            "args": [
-	              "window-size=1024,800"
-        ],
-                "browserName": "chrome",
-                "acceptSslCerts": true,
-                "javascriptEnabled": true
-            }
-        }
-    }
+           },
+           "chrome":
+           {
+           "browserName": "chrome",
+	                      "acceptSslCerts": true,
+                   "javascriptEnabled": true,
+               "desiredCapabilities":
+               {
+                
+                   
+               }
+           }
+       }
 }

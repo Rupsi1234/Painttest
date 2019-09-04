@@ -20,19 +20,15 @@
         "chromedriver": "^76.0.1",
         "deep-diff": "^1.0.2",
         "winston-daily-rotate-file": "^3.3.1",
-               "yargs": "^11.0.0"
+        "yargs": "^11.0.0"
     },
     "description": "Leonardo Paint",
-    "devDependencies": {
-       
-       
-       
-    },
+    "devDependencies": {},
     "license": "ISC",
     "main": "index.js",
     "name": "Paint-Automation",
     "scripts": {
-        "test": "nightwatch -c ./nightwatch.json -e chrome"
+        "test": "nightwatch -c ./nightwatch.json"
     },
     "version": "1.0.0"
 }

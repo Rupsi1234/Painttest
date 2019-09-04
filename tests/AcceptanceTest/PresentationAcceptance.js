@@ -1,6 +1,6 @@
  var getID = require('./../../utils/modules/getID');
   var embedID = require('./../../utils/modules/embedUrl');
-describe('Presentation Item Acceptance Test', function(client) {
+describe('Presentation Item Acceptance Test', function(browser) {
     this.timeout(9000000);
      
       var testfile_name = this.file;
@@ -10,26 +10,26 @@ describe('Presentation Item Acceptance Test', function(client) {
       var result = testfile_name.substring(n + 1);
       var ItemId;
       var em;
-      var client1
+      var browser1
       var item="presentation"
-      before(function(client, done) {
+      before(function(browser, done) {
 
        logger.info("Executing File: " + result + ".js")
         logger.info("Starting following suite : " + suite_name)
-          loginPage = client.page.loginPage();
-          createItem =client.page.createItem();
-          setupPage = client.page.setupPage();
-          documentUpload =client.page.documentUpload();
-          preferencePage=client.page.preferencePage();
-          previewPublishPage = client.page.previewPublishPage();
-          headerFooterPage=client.page.headerFooterPage();
-          dashBoardPage=client.page.dashBoardPage();
+          loginPage = browser.page.loginPage();
+          createItem =browser.page.createItem();
+          setupPage = browser.page.setupPage();
+          documentUpload =browser.page.documentUpload();
+          preferencePage=browser.page.preferencePage();
+          previewPublishPage = browser.page.previewPublishPage();
+          headerFooterPage=browser.page.headerFooterPage();
+          dashBoardPage=browser.page.dashBoardPage();
 
-    logger.info("Launching Browser : " + client.options.desiredCapabilities.browserName)
+    logger.info("Launching Browser : " + browser.options.desiredCapabilities.browserName)
     logger.info("Launching the Leonardo Paint URL : " + data.url)
 
-     client
-            .maximizeWindow()
+     browser
+            
             .url(data.url, function() {
              logger.info("Login Page is uploaded")
              loginPage
@@ -43,7 +43,7 @@ describe('Presentation Item Acceptance Test', function(client) {
                 done();
           })
     }),
-      beforeEach(function (client, done) {
+      beforeEach(function (browser, done) {
         testcase_name = this.currentTest.title;
         testcase_name=testcase_name.substring(testcase_name.lastIndexOf("\\")+1)
 
@@ -52,11 +52,11 @@ describe('Presentation Item Acceptance Test', function(client) {
         done();
     });
     
-   it('TC01: Validate "Create Presentation Item" workflow for a single sheet workbook', function(client) {
+   it('TC01: Validate "Create Presentation Item" workflow for a single sheet workbook', function(browser) {
     logger.info("Launching the Leonardo Paint")
     var Title="leonardo-Single Sheet-Presentation-Test"
    
-    client
+    browser
      .waitUntilLoaderPresent(function() {
                       createItem
                       .openCreate()
@@ -102,14 +102,14 @@ describe('Presentation Item Acceptance Test', function(client) {
       
         
         .waitUntilLoaderPresent(function() {
-            client1=client
+            browser1=browser
             previewPublishPage
                         .verify.containsText(properties.get("activeTabText"), "Publish", "Documents Tab is not active") 
                         .validatePublishCheckpoints()
                         .openPreview()
                         .closePreview()
                         .publishItem()
-                        getID.getLeonardoID(client1)
+                        getID.getLeonardoID(browser1)
                                             .then(function(value) {
                                             logger.info("Item ID:"+value);
                                             ItemId=value
@@ -133,7 +133,7 @@ describe('Presentation Item Acceptance Test', function(client) {
               dashBoardPage
                         .openEmbed(ItemId)
                         .verify.containsText( '.modal-embed .modal-header>span' ,"Embed Leonardo Item - "+Title, "Header is not Correct" )
-                         embedID.getEmbedUrl(client1)
+                         embedID.getEmbedUrl(browser1)
                                 .then(function(value) {
                                             logger.info("embedurl:"+value);
                                      })
@@ -148,12 +148,12 @@ describe('Presentation Item Acceptance Test', function(client) {
       }),
 
  
-it('TC02: Validate "Create Presentation Item" workflow for a workbook having two Sheets', function(client) {
+it('TC02: Validate "Create Presentation Item" workflow for a workbook having two Sheets', function(browser) {
     
         
     logger.info("Launching the Leonardo Paint")
     var Title="leonardo-Mulitple Sheet-Presentation-Test"
-    client
+    browser
 
           .url(data.url)
           .waitUntilLoaderPresent(function() {
@@ -208,7 +208,7 @@ it('TC02: Validate "Create Presentation Item" workflow for a workbook having two
                         .openPreview()
                         .closePreview()
                         .publishItem()
-                        getID.getLeonardoID(client1)
+                        getID.getLeonardoID(browser1)
                                             .then(function(value) {
                                             logger.info("Item ID:"+value);
                                             ItemId=value
@@ -233,7 +233,7 @@ it('TC02: Validate "Create Presentation Item" workflow for a workbook having two
               dashBoardPage
                         .openEmbed(ItemId)
                         .verify.containsText( '.modal-embed .modal-header>span' ,"Embed Leonardo Item - "+Title, "Header is not Correct" )
-                         embedID.getEmbedUrl(client1)
+                         embedID.getEmbedUrl(browser1)
                                 .then(function(value) {
                                             logger.info("embedurl:"+value);
                                      })
@@ -249,13 +249,13 @@ it('TC02: Validate "Create Presentation Item" workflow for a workbook having two
   
       })
  
- afterEach(function (client, done) {
+ afterEach(function (browser, done) {
         testcase_name = this.currentTest.title;
         logger.info("Completed following Test Case: " + testcase_name)
         done();
     });
-     after(function(client, done) {
-        client.end(function() {
+     after(function(browser, done) {
+        browser.end(function() {
             done();
        })
  
