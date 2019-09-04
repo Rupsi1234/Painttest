@@ -21,3 +21,6 @@ blocks:
           - echo $APP_ENV
           - checkout
           - ls -alh
+sudo touch /etc/apt/sources.list.d/google-chrome-source.list
+
+install-package --update-new google-chrome-stable
