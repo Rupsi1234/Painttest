@@ -22,7 +22,7 @@
            "port": 4444,
            "cli_args":
            {
-               "webdriver.chrome.driver": "/home/runner/Painttest/node_modules/chromedriver/lib/chromedriver/chromedriver",
+               "webdriver.chrome.driver": "./node_modules/chromedriver/lib/chromedriver/chromedriver",
                "webdriver.ie.driver": "",
                "webdriver.gecko.driver": "./utils/drivers/geckodriver.exe"
            }
@@ -62,11 +62,8 @@
                "desiredCapabilities":
                {
                    "browserName": "chrome",
-                 "chromeOptions" : {
-                  "args": [
-                    "--headless"
-             ]}
-               },
+                 
+               
                 "globals": {
                    "waitForConditionTimeout": 5000,
                    "retryAssertionTimeout": 5000
@@ -76,12 +73,9 @@
            {
            "browserName": "chrome",
 	                      "acceptSslCerts": true,
-                   "javascriptEnabled": true,
-               "desiredCapabilities":
-               {
-                
-                   
-               }
+                   "javascriptEnabled": true
+               
            }
        }
+     }
 }
