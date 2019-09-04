@@ -17,10 +17,4 @@ blocks:
       jobs:
       - name: Download our code
         commands:
-          - echo "Hello from Semaphore!"
-          - echo $APP_ENV
-          - checkout
-          - ls -alh
-sudo touch /etc/apt/sources.list.d/google-chrome-source.list
-
-install-package --update-new google-chrome-stable
+        - install-package --update-new google-chrome-stable
