@@ -16,18 +16,18 @@
         "nightwatch-vrt": "^0.2.6",
         "properties-reader": "0.0.16",
         "read-json-sync": "^2.0.0",
-        "winston": "^3.0.0",
+        "winston": "^3.0.0",,
+        "chromedriver": "^76.0.1",
         "deep-diff": "^1.0.2",
         "winston-daily-rotate-file": "^3.3.1"
+        
+        "yargs": "^11.0.0"
     },
     "description": "Leonardo Paint",
     "devDependencies": {
-        "argv": "0.0.2",
-        "chromedriver": "^76.0.1",
-        "csv-load-sync": "^1.0.0",
-        "json-file": "^0.1.0",
-        "mochawesome": "^3.0.2",
-        "yargs": "^11.0.0"
+       
+       
+       
     },
     "license": "ISC",
     "main": "index.js",
