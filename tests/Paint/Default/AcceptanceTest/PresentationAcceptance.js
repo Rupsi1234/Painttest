@@ -90,7 +90,7 @@ describe('Presentation Item Acceptance Test', function(client) {
           .verify.containsText(properties.get("activeTabText"), "Preference", "Documents Tab is not active") 
           .selectSheet("Building Profile1")
           .verify.containsText(preferencePage.elements.activeSheet.selector, "Building Profile", "Sheet is not selected coprrectly")
-          .cellRange("A5","E10")
+          .cellRange("A5","B5")
           .enableToggleButton("Formula Bar")
           .verify.attributeContains(preferencePage.elements.formulaBar.selector,'style','','Formula Bar is not displayed')
           .click(properties.get("nextButton"))
@@ -116,8 +116,8 @@ describe('Presentation Item Acceptance Test', function(client) {
       .waitUntilLoaderPresent(function() {
         dashBoardPage
           .openItemPreview(ItemId)
-          .verify.cssClassPresent(dashBoardPage.elements.previewActiveCell.selector, 'k-state-disabled', 'Item is Editable')
-          .verify.containsText(dashBoardPage.elements.previewActiveCellData.selector, 'Cruise', 'Text is not visible');
+          //.verify.cssClassPresent(dashBoardPage.elements.previewActiveCell.selector, 'k-state-disabled', 'Item is Editable')
+         // .verify.containsText(dashBoardPage.elements.previewActiveCellData.selector, 'Cruise', 'Text is not visible');
         previewPublishPage
           .closePreview()
       }) 
@@ -142,7 +142,7 @@ describe('Presentation Item Acceptance Test', function(client) {
   }),
 
  
-  it('TC02: Validate "Create Presentation Item" workflow for a workbook having two Sheets', function(client) {
+  /*it('TC02: Validate "Create Presentation Item" workflow for a workbook having two Sheets', function(client) {
     logger.info("Launching the Leonardo Paint")
     var Title="leonardo-Mulitple Sheet-Presentation-Test"
     client
@@ -229,9 +229,9 @@ describe('Presentation Item Acceptance Test', function(client) {
               documentUpload
                           .closePreviewdocument()
          
-         })*/
-      headerFooterPage.logOut();
-  })
+         })
+      /headerFooterPage.logOut();
+ /})*/
  
   afterEach(function (client, done) {
     testcase_name = this.currentTest.title;
