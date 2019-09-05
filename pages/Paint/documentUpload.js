@@ -50,10 +50,10 @@ commands : [{
 
       } else {
         // var reqPath = path.join(__dirname, '../')
-        // var startPath = reqPath +'testdata\\'+ start
-        // var finalPath = reqPath +'testdata\\'+ final
-        var startPath = currentDirPath +'\\testdata\\'+ start
-        var finalPath = currentDirPath +'\\testdata\\'+ final
+        // var startPath = reqPath +'testdata/'+ start
+        // var finalPath = reqPath +'testdata/'+ final
+        var startPath = currentDirPath +'/testdata/'+ start
+        var finalPath = currentDirPath +'/testdata/'+ final
       }
       logger.info("Upload the Document in Item")
       try {
