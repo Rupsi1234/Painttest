@@ -1,8 +1,8 @@
 {
-    "url": "http://paint-stg.leonardodls.com",
+    "url": "https://leonardo-paint-qa.herokuapp.com",
     "org" : "leonardo-dev",
     "username": "qa_automation",
     "password": "qa_automation",
-    "inputJson": "./testdata/InputData.json",
-    "testDataBaseFolder": "F:/Leonardo Paint/master/LeonardoAutomation/Paint Automation/testdata/"
+    "inputJson": "/testdata/InputData.json",
+    "testDataBaseFolder": "D:/Automation/LeonardoAutomation/LeonardoAutomation/testdata/"
 }

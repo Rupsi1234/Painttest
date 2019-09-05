@@ -1,12 +1,19 @@
 {
-    "src_folders": ["./tests/AcceptanceTest"],
+    "src_folders": "./tests/Paint/Default/AcceptanceTest",
     "output_folder": "./output/reports",
     "custom_commands_path": [
         "./utils/custom-commands",
         "./utils/custom-functions"
     ],
-    "page_objects_path": "./pages",
-    "custom_assertions_path": "./utils/custom-assertions",
+    "page_objects_path": [
+        "./pages",
+        "./pages/Paint",
+        "./pages/Player"
+    ],
+    "custom_assertions_path": [
+        "./utils/custom-assertions",
+        "./node_modules/nightwatch-vrt/assertions"
+    ],
     "globals_path": "./environment.js",
     "live_output": true,
     "parallel_process_delay": 10,
@@ -14,68 +21,32 @@
     "test_workers": false,
 
     "selenium":
-       {
-           "start_process": true,
-           "server_path": "./utils/drivers/selenium-server-standalone-3.4.0.jar",
-           "log_path": "",
-           "host": "127.0.0.1",
-           "port": 4444,
-           "cli_args":
-           {
-               "webdriver.chrome.driver": "./utils/drivers/chromedriver",
-               "webdriver.ie.driver": "",
-               "webdriver.gecko.driver": "./utils/drivers/geckodriver.exe"
-           }
-       },
-       "test_settings":
-       {
-           "default":
-           {
-               "launch_url": "http://localhost",
-               "selenium_host": "localhost",
-               "selenium_port": 4444,
-               "silent": true,
-               "persist_globals": true,
-               "skip_testcases_on_fail": false,
-               "end_session_on_fail": false,
-               "disable_colors": false,
-               "screenshots":
-               {
-                   "enabled": false,
-                   "path": ""
-               },
-               "test_runner":
-               {
-                   "type": "mocha",
-                   "options":
-                   {
-                       "ui": "bdd",
-                       "reporter": "mochawesome",
-                       "grep":"",
-                       "reporterOptions": {
-                           "reportTitle": "Leonardo Paint reports",
-                            "overwrite": false
-                          
-                       }
-                   }
-               },
-               "desiredCapabilities":
-               {
-                   "browserName": "chrome",
-                 
-               
-                "globals": {
-                   "waitForConditionTimeout": 5000,
-                   "retryAssertionTimeout": 5000
-                }
-           },
-           "chrome":
-           {
-           "browserName": "chrome",
-	                      "acceptSslCerts": true,
-                   "javascriptEnabled": true
-               
-           }
-       }
-     }
+    {
+        "start_process": true,
+        "server_path": "./utils/drivers/selenium-server-standalone-3.4.0.jar",
+        "log_path": "",
+        "host": "127.0.0.1",
+        "port": 4444,
+        "cli_args":
+        {
+            "webdriver.chrome.driver": "./node_modules/chromedriver/lib/chromedriver/chromedriver.exe",
+            "webdriver.ie.driver": "",
+            "webdriver.gecko.driver": "./utils/drivers/geckodriver.exe"
+        }
+    },
+    "test_settings":
+    {
+        "default":
+        {
+        },
+        "chrome":
+        {
+            "desiredCapabilities":
+            {
+                "browserName": "chrome",
+                "acceptSslCerts": true,
+                "javascriptEnabled": true
+            }
+        }
+    }
 }

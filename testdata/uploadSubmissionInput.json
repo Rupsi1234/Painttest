@@ -1,0 +1,13 @@
+{
+    "TC_OOO_02" : [{
+        "initial_document" : "E:\\Leonardo\\TestData\\TS01 - Validate perfect scenarios\\TestDocuments_TrialBalance\\Trial_Balance_Start.xlsx",
+        "final_document" : "E:\\Leonardo\\TestData\\TS01 - Validate perfect scenarios\\TestDocuments_TrialBalance\\Trial_Balance_Final.xlsx",
+        "submission_document" : "E:\\Leonardo\\TestData\\TS01 - Validate perfect scenarios\\TestDocuments_TrialBalance\\TC_OOO_02\\Trial_Balance_Submission.xlsx"
+    }],
+
+    "TC_OOO_03" : [{
+        "initial_document" : "E:\\Leonardo\\TestData\\TS02 - Validate scenarios where Rows position interchanged w.r.t. solution\\TestDocuments_TrialBalance\\Trial_Balance_Start.xlsx",
+        "final_document" : "E:\\Leonardo\\TestData\\TS02 - Validate scenarios where Rows position interchanged w.r.t. solution\\TestDocuments_TrialBalance\\Trial_Balance_Final.xlsx",
+        "submission_document" : "E:\\Leonardo\\TestData\\TS02 - Validate scenarios where Rows position interchanged w.r.t. solution\\TestDocuments_TrialBalance\\TC_OOO_03\\Trial_Balance_Submission.xlsx"
+    }]
+}
