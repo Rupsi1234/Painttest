@@ -22,7 +22,7 @@
            "port": 4444,
            "cli_args":
            {
-               "webdriver.chrome.driver": "require('chromedriver').path",
+               "webdriver.chrome.driver": "/home/semaphore/Painttest/node_modules/chromedriver/lib/chromedriver/chromedriver",
                "webdriver.ie.driver": "",
                "webdriver.gecko.driver": "./utils/drivers/geckodriver.exe"
            }
