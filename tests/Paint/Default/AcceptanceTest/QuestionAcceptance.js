@@ -1,5 +1,6 @@
 var getID = require(currentDirPath + '/utils/modules/getID');
 var embedID = require(currentDirPath + '/utils/modules/embedUrl');
+var check=require('chromedriver').path;
 describe ('Question Item Acceptance Test', function(client) {
 
 	this.timeout(90000000);
