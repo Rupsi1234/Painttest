@@ -26,7 +26,7 @@
         "server_path": "./utils/drivers/selenium-server-standalone-3.4.0.jar",
         "log_path": "",
         "host": "127.0.0.1",
-        "port": 4444,
+        "port": 4444
        
     },
     "test_settings":
