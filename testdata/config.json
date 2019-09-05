@@ -1,0 +1,44 @@
+{	
+	"spreadsheet" : {
+		"staging" : {
+			"url" : "https://compro:c0mpr0@leonardo-spreadsheet-test.herokuapp.com"
+		},
+		"production" : {
+			"url" : "https://compro:c0mpr0@leonardo-spreadsheet-test.herokuapp.com"
+		},
+		"qa" : {
+			"url" : "https://compro:c0mpr0@leonardo-spreadsheet-test.herokuapp.com"
+		}
+	},
+
+	"defaultPlayer" : {
+		"staging" : {
+			"playerJSON1_URL": "https://leonardo-sdk-stg.herokuapp.com/embedframe/lLVlYvR-Rj",
+			"playerJSON2_URL": "https://leonardo-sdk-stg.herokuapp.com/embedframe/lLVoZoY4P2",
+			"playerJSON3_URL": "https://leonardo-sdk-stg.herokuapp.com/embedframe/lzwkZd0DNh"
+		},
+
+		"production" : {
+
+		},
+
+		"qa" : {
+			"playerJSON1_URL": "https://leonardo-sdk-dev.herokuapp.com/embedframe/lEs-ZK8rsp2",
+			"playerJSON2_URL": "https://leonardo-sdk-dev.herokuapp.com/embedframe/lvNBpAvGn6",
+			"playerJSON3_URL": "https://leonardo-sdk-dev.herokuapp.com/embedframe/l6oydXkxB4y"
+		}
+	},
+
+	"jove" : {
+		"staging" : {
+		},
+
+		"production" : {
+
+		},
+
+		"qa" : {
+
+		}
+	}
+}

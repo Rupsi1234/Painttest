@@ -17,7 +17,7 @@ util.inherits(selectElement, events.EventEmitter);
 selectElement.prototype.command = function(propertyName, callback) {
 
 	//timeoutInMilliseconds=5000;
-   
+   console.log(propertyName)
     var self = this;
    // setTimeout(function() {
         

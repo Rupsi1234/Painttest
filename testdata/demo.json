@@ -1,0 +1,1721 @@
+{
+    "Suite 1":
+    {
+        "Name": "Font Group: Style, Name, Underline, Size Validation",
+        "Json": "json2",
+        "S1_TC01":
+        {
+            "TestCase": "Apply Bold formatting on a single cell",
+            "Tags": "P1,Keyboard,AKS1TC01",
+            "ExtendedValidation": "A6",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A6"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "bold"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-weight: bold"
+            }]
+        },
+        "S1_TC02":
+        {
+            "TestCase": "Applying Bold formatting to multiple cells simultaneously (Range)",
+            "Tags": "P1,Keyboard,AKS12345TC2",
+            "ExtendedValidation": "B16,B18,B19",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "B16:B19"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "bold"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B16,B18,B19",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-weight: bold"
+            }]
+        },
+        "S1_TC03":
+        {
+            "TestCase": "Apply Bold Formatting on a cell containing multiple words",
+            "Tags": "P1,Keyboard,AKS1",
+            "ExtendedValidation": "A18",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A18"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "bold"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A18",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-weight: bold"
+            }]
+        },
+        "S1_TC04":
+        {
+            "TestCase": "Apply Italics formatting on a single cell",
+            "Tags": "P1,Keyboard,AKS1TC04",
+            "ExtendedValidation": "B10",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "B10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "italics"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-style: italic"
+            }]
+        },
+        "S1_TC05":
+        {
+            "TestCase": "Applying Italics formatting to multiple cells simultaneously (Range)",
+            "Tags": "P1,Keyboard,AKS1",
+            "ExtendedValidation": "A1,A2,A3",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A1:A3"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "italics"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A1,A2,A3",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-style: italic"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A2,A3",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-style: italic"
+            }]
+        },
+        "S1_TC06":
+        {
+            "TestCase": "Apply Italics Formatting on a cell containing multiple words",
+            "Tags": "P1,Keyboard,AKS1",
+            "ExtendedValidation": "A7",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A7"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "italics"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A7",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-style: italic"
+            }]
+        },
+        "S1_TC07":
+        {
+            "TestCase": "Apply Underline Formatting on a single cell",
+            "Tags": "P1,Keyboard,AKS1",
+            "ExtendedValidation": "A8",
+            "SkipExtendedValProp": "textDecorationColor,textDecorationLine,textDecorationStyle,textDecoration",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A8"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "underline"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A8",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "text-decoration: underline"
+            }]
+        },
+        "S1_TC08":
+        {
+            "TestCase": "Applying Underline Formatting to multiple cells simultaneously(Range)",
+            "Tags": "P1,Keyboard,AKS1",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A10:A14"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "underline"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A10,A11,A12,A13,A14",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "text-decoration: underline"
+            }]
+        },
+        "S1_TC09":
+        {
+            "TestCase": "Apply Bold,Italics and Underline on single cell",
+            "Tags": "P1,Keyboard, Lavish,AKS1",
+            "ExtendedValidation": "A9",
+            "SkipExtendedValProp": "textDecorationColor,textDecorationLine,textDecorationStyle,textDecoration",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A9"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "underline"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "italics"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "bold"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "text-decoration: underline"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-style: italic"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-weight: bold"
+            }]
+        },
+        "S1_TC29":
+        {
+            "TestCase": "Undo Bold, Italics and Underline on single cell",
+            "Tags": "P1,Keyboard, Lavish, AKS1",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,z,z,z,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getCssProperty",
+                "Property": "font-weight",
+                "Expected": "400"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getCssProperty",
+                "Property": "font-style",
+                "Expected": "normal"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getCssProperty",
+                "Property": "text-decoration",
+                "Expected": "none solid rgb(46, 46, 46)"
+            }]
+        },
+        "S1_TC34":
+        {
+            "TestCase": "Redo Bold,Italics and Underline on single cell",
+            "Tags": "P1,Keyboard, Rupsi, AKS1",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,y,y,y,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "text-decoration: underline"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-style: italic"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-weight: bold"
+            }]
+        },
+        "S1_TC10":
+        {
+            "TestCase": "Apply Underline to a blank cell and then enter text",
+            "Tags": "P1, AKS1",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "C6"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "underline"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "C6"
+            },
+            {
+                "Event": "enterText",
+                "Target": "Enter The Text In the Cell"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "text-decoration: underline"
+            }]
+        },
+        "S1_TC39":
+	        {
+	            "TestCase": "Apply Bold to a blank cell and then enter text",
+	            "Tags": "P1, AKS1",
+	            "ExtendedValidation": "",
+	            "SkipExtendedValProp": "",
+	            "Actions": [
+	            {
+	                "Event": "selectCell",
+	                "Target": "C7"
+	            },
+	            {
+	                "Event": "selectElement",
+	                "Target": "bold"
+	            },
+	            {
+	                "Event": "selectCell",
+	                "Target": "C7"
+	            },
+	            {
+	                "Event": "enterText",
+	                "Target": "Enter The Text In the Cell"
+	            },
+	            {
+	                "Event": "validateCell",
+	                "ActiveCell": "C7",
+	                "Target": "getAttribute",
+	                "Property": "style",
+	                "Expected": "font-weight: bold"
+	            }]
+        },
+        "S1_TC40":
+	        {
+	            "TestCase": "Apply Italics to a blank cell and then enter text",
+	            "Tags": "P1, AKS1",
+	            "ExtendedValidation": "",
+	            "SkipExtendedValProp": "",
+	            "Actions": [
+	            {
+	                "Event": "selectCell",
+	                "Target": "C8"
+	            },
+	            {
+	                "Event": "selectElement",
+	                "Target": "italics"
+	            },
+	            {
+	                "Event": "selectCell",
+	                "Target": "C8"
+	            },
+	            {
+	                "Event": "enterText",
+	                "Target": "Enter The Text In the Cell"
+	            },
+	            {
+	                "Event": "validateCell",
+	                "ActiveCell": "C8",
+	                "Target": "getAttribute",
+	                "Property": "style",
+	                "Expected": "font-style: italic"
+	            }]
+        },
+        "S1_TC11":
+        {
+            "TestCase": "Apply Lucida Sans font on a single cell",
+            "Tags": "P1,Keyboard,AKS1TC11",
+            "ExtendedValidation": "A2",
+            "SkipExtendedValProp": "top,left",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A2"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "fontdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "fontLucidaSans"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A2",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-family: \"Lucida Sans\""
+            }]
+        },
+        "S1_TC12":
+        {
+            "TestCase": "Apply Lucida Sans font to multiple cells simultaneously",
+            "Tags": "P1,Keyboard,FontFamily, Lavish,AKS1TC12",
+            "ExtendedValidation": "A10,B10",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A10:B10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "fontdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "fontLucidaSans"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A10,B10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-family: \"Lucida Sans\""
+            }]
+        },
+        "S1_TC30":
+        {
+            "TestCase": "Undo Lucida Sans font to multiple cells simultaneously",
+            "Tags": "P1,Keyboard,FontFamily, Lavish,AKS1, Failing as row size not updating",
+            "ExtendedValidation": "A10",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,z,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-family: Calibri"
+            }]
+        },
+        "S1_TC35":
+        {
+            "TestCase": "Redo Lucida Sans font to multiple cells simultaneously",
+            "Tags": "P1,Keyboard,FontFamily, Rupsi, AKS1",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,y,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-family: \"Lucida Sans\""
+            }]
+        }
+    },
+    "Suite2":
+    {
+        "Name": "Font Group: Color and Size Validation",
+        "Json": "json3",
+        "S2_TC13":
+        {
+            "TestCase": "Apply 'Fill Color' on single cell",
+            "Tags": "P1,Keyboard,AKS2TC13",
+            "ExtendedValidation": "A6",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A6"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "fillColor"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "yellow"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "background-color: rgb(255, 255, 0)"
+            }]
+        },
+        "S2_TC14":
+        {
+            "TestCase": "Change 'Text Color' on a single cell",
+            "Tags": "P1,Keyboard,AKS2",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "B6"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "textColor"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "textBlue"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "color: rgb(0, 112, 192)"
+            }]
+        },
+         "S2_TC44":
+        {
+            "TestCase": "Applying Fill Color to multiple cells simultaneously(Range) ",
+           "Tags": "P1,Keyboard, Lavish, AKS4",
+            "ExtendedValidation": "C4,C5,C6,C10",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "C4:C10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "fillColor"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "yellow"
+            },
+            {
+                 "Event": "validateCell",
+                "ActiveCell": "C4",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "background-color: rgb(255, 255, 0)"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C5",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "background-color: rgb(255, 255, 0)"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "background-color: rgb(255, 255, 0)"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "background-color: rgb(255, 255, 0)"
+            }]
+        },
+        "S2_TC15":
+        {
+            "TestCase": "Change 'Text Size' on a single cell",
+            "Tags": "P1,Keyboard, Lavish,AKS2",
+            "ExtendedValidation": "C6",
+             "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "C6"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "increaseFontSize"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-size: 12pt"
+            }]
+        },
+        "S2_TC31":
+        {
+            "TestCase": "Undo 'Text Size' on a single cell",
+            "Tags": "P1,Keyboard,FontFamily, Lavish,AKS2",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,z,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-size: 11pt"
+            }]
+        },
+        "S2_TC36":
+        {
+            "TestCase": "Redo 'Text Size' on a single cell",
+            "Tags": "P1,Keyboard,FontFamily, Rupsi, AKS2",
+            "ExtendedValidation": "C6",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,y,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-size: 12pt"
+            }]
+        },
+         "S2_TC41":
+            {
+                "TestCase": "Change Font Size to a blank cell and then enter text",
+                "Tags": "P1, AKS1",
+                "ExtendedValidation": "",
+                "SkipExtendedValProp": "",
+                "Actions": [
+                {
+                    "Event": "selectCell",
+                    "Target": "E7"
+                },
+                {
+                    "Event": "selectElement",
+                    "Target": "increaseFontSize"
+                },
+                {
+                    "Event": "selectCell",
+                    "Target": "E7"
+                },
+                {
+                    "Event": "enterText",
+                    "Target": "Enter The Text In the Cell"
+                },
+                {
+                    "Event": "validateCell",
+                    "ActiveCell": "E7",
+                    "Target": "getAttribute",
+                    "Property": "style",
+                    "Expected": "font-size: 12pt"
+                }]
+        },
+         "S2_TC42":
+            {
+                "TestCase": "Apply Font Color to a blank cell and then enter text",
+                "Tags": "P1, AKS1",
+                "ExtendedValidation": "",
+                "SkipExtendedValProp": "",
+               "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "E6"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "textColor"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "textBlue"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "E6"
+            },
+            {
+                "Event": "enterText",
+                "Target": "Enter The Text In the Cell"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "E6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "color: rgb(0, 112, 192)"
+            }]
+        },
+         "S2_TC43":
+            {
+                "TestCase": "Apply Fill Color to a blank cell and then enter text",
+                "Tags": "P1, AKS1",
+                "ExtendedValidation": "",
+                "SkipExtendedValProp": "",
+                 "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "E8"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "fillColor"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "yellow"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "E8"
+            },
+            {
+                "Event": "enterText",
+                "Target": "Enter The Text In the Cell"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "E8",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "background-color: rgb(255, 255, 0)"
+            }]
+        },
+         "S2_TC45":
+        {
+            "TestCase": "Applying Font Size to multiple cells simultaneously(Range) ",
+           "Tags": "P1,Keyboard, Lavish, AKS4",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "C4:C10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "increaseFontSize"
+            },
+          
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-size: 12pt"
+            },
+            {
+               "Event": "validateCell",
+                "ActiveCell": "C7",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-size: 12pt"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C8",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-size: 12pt"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "font-size: 12pt"
+            }]
+        }
+    },
+    "Suite3":
+    {
+        "Name": "Alignment Group: Cell Allignment, Merge and Center Validation",
+        "Json": "json2",
+        "S3_TC16":
+        {
+            "TestCase": "Change cell Alignment on a cell",
+            "Tags": "P1,Keyboard, AKS3",
+            "ExtendedValidation": "A6",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A6"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "centerAlign"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "text-align: center"
+            }]
+        },
+        "S3_TC17":
+        {
+            "TestCase": "Apply Merge and Center option on cell range",
+            "Tags": "P1,Keyboard, AKS317",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A18:B18"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeandcenter"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeWarning"
+            },
+           
+
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A18",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "text-align: center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B18",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "text-align: center"
+            }]
+        },
+        "S3_TC18":
+        {
+            "TestCase": "Apply Merge Across option on cell range",
+            "Tags": "P1,Keyboard, AKS3,Rupsi1",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A7:B7"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergedropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeAcross"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeWarning"
+            },
+           
+
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A7",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "width: 271px"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B7",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "width: 271px"
+            }]
+        },
+        "S3_TC19":
+        {
+            "TestCase": "Apply Merge Cells option on cell range",
+            "Tags": "P1,Keyboard, Lavish, AKS3",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A10:B10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergedropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeCells"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeWarning"
+            },
+          
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "width: 271px"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "width: 271px"
+            }]
+        },
+        "S3_TC32":
+        {
+            "TestCase": "Undo Merge Cells option on cell range",
+            "Tags": "P1,Keyboard, Lavish, AKS3",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,z,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "width: 152px"
+            }]
+        },
+        "S3_TC37":
+        {
+            "TestCase": "Redo Merge Cells option on cell range",
+            "Tags": "P1,Keyboard, Rupsi, AKS3",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,y,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "width: 271px"
+            }]
+        },
+        "S3_TC20":
+        {
+            "TestCase": "Unmerge a merged cell",
+            "Tags": "P1,Keyboard, AKS3",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A10:B10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergedropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "unmergeCells"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "width: 152px"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "width: 118px"
+            }]
+        },
+        "S3_TC21":
+        {
+            "TestCase": "Vertical Alignment on a single cell",
+            "Tags": "P1,Keyboard, AKS3",
+            "ExtendedValidation": "A9,B9,A10",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A9"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "topalign"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "B9"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "middlealign"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "A10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "bottomalign"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A9",
+                "Target": "getAttribute",
+                "Property": "class",
+                "Expected": "k-vertical-align-top"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B9",
+                "Target": "getAttribute",
+                "Property": "class",
+                "Expected": "k-vertical-align-center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A10",
+                "Target": "getAttribute",
+                "Property": "class",
+                "Expected": "k-vertical-align-bottom"
+            }]
+        },
+        "S3_TC22":
+        {
+            "TestCase": "Vertical Alignment on cell range",
+            "Tags": "P1,Keyboard,AKS3",
+            "ExtendedValidation": "A5,A6,A20",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A5:C5"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "topalign"
+            },
+            {
+                "Event": "selectRange",
+                "Target": "A6:A16"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "middlealign"
+            },
+            {
+                "Event": "selectRange",
+                "Target": "A20:C20"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "bottomalign"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A5",
+                "Target": "getAttribute",
+                "Property": "class",
+                "Expected": "k-vertical-align-top"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A6",
+                "Target": "getAttribute",
+                "Property": "class",
+                "Expected": "k-vertical-align-center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A20",
+                "Target": "getAttribute",
+                "Property": "class",
+                "Expected": "k-vertical-align-bottom"
+            }]
+        },
+        "S3_TC23":
+        {
+            "TestCase": "Vertical Alignment on Merged Cell",
+            "Tags": "P1,Keyboard,AKS3",
+            "ExtendedValidation": "C11,A17,A6",
+            "SkipExtendedValProp": "left,top,height,paddingLeft,width,textAlign",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "C11:C13"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeandcenter"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeWarning"
+            },
+          
+            {
+                "Event": "selectElement",
+                "Target": "topalign"
+            },
+            {
+                "Event": "selectRange",
+                "Target": "A17:A19"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeandcenter"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeWarning"
+            },
+           
+            {
+                "Event": "selectElement",
+                "Target": "middlealign"
+            },
+            {
+                "Event": "selectRange",
+                "Target": "A6:B6"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeandcenter"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeWarning"
+            },
+          
+            {
+                "Event": "selectElement",
+                "Target": "bottomalign"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C11",
+                "Target": "getAttribute",
+                "Property": "class",
+                "Expected": "k-vertical-align-top"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A17",
+                "Target": "getAttribute",
+                "Property": "class",
+                "Expected": "k-vertical-align-center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A6",
+                "Target": "getAttribute",
+                "Property": "class",
+                "Expected": "k-vertical-align-bottom"
+            }]
+        }
+    },
+      "Suite 4":
+    {
+        "Name": "Font Group: Cell Borders and Font Color Validation",
+        "Json": "json3",
+        "S4_TC24":
+        {
+            "TestCase": "(Needs to be updated)Check all the Border (Bottom, Top, Left etc) options on single cell",
+            "Tags": "NeedsUpdation",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "A7"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "borderdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "topBorder"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "B7"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "borderdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "bottomBorder"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "C7"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "borderdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "leftBorder"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A7",
+                "Target": "getCssProperty",
+                "Property": "border-color",
+                "Expected": "rgb(33, 115, 70)"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B7",
+                "Target": "getCssProperty",
+                "Property": "border-color",
+                "Expected": "rgb(33, 115, 70)"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C7",
+                "Target": "getCssProperty",
+                "Property": "border-color",
+                "Expected": "rgb(33, 115, 70)"
+            }]
+        },
+        "S4_TC25":
+        {
+            "TestCase": "Check all the Border (Bottom, Top, Left etc) options on Cell Range",
+            "Tags": "NeedsUpdation",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A8:A10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "borderdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "topBorder"
+            },
+            {
+                "Event": "selectRange",
+                "Target": "B8:B10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "borderdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "bottomBorder"
+            },
+            {
+                "Event": "selectRange",
+                "Target": "C8:C10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "borderdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "leftBorder"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A8",
+                "Target": "getCssProperty",
+                "Property": "border-style",
+                "Expected": "center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B10",
+                "Target": "getCssProperty",
+                "Property": "border-style",
+                "Expected": "center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C9",
+                "Target": "getCssProperty",
+                "Property": "border-style",
+                "Expected": "center"
+            }]
+        },
+        "S4_TC26":
+        {
+            "TestCase": "Check all the Border (Bottom, Top, Left etc) Options on Merged Cells",
+            "Tags": "NeedsUpdation",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "A11:A12"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeandcenter"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeWarning"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "A11"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "borderdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "topBorder"
+            },
+            {
+                "Event": "selectRange",
+                "Target": "B11:B12"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeandcenter"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeWarning"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "B11"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "borderdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "bottomBorder"
+            },
+            {
+                "Event": "selectRange",
+                "Target": "C11:C12"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeandcenter"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "mergeWarning"
+            },
+            {
+                "Event": "selectCell",
+                "Target": "C11"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "borderdropdown"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "leftBorder"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A11",
+                "Target": "getCssProperty",
+                "Property": "text-align",
+                "Expected": "center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "A11",
+                "Target": "getCssProperty",
+                "Property": "border-style",
+                "Expected": "center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B11",
+                "Target": "getCssProperty",
+                "Property": "text-align",
+                "Expected": "center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B11",
+                "Target": "getCssProperty",
+                "Property": "border-style",
+                "Expected": "center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C11",
+                "Target": "getCssProperty",
+                "Property": "text-align",
+                "Expected": "center"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C11",
+                "Target": "getCssProperty",
+                "Property": "border-style",
+                "Expected": "center"
+            }]
+        },
+        "S4_TC27":
+        {
+            "TestCase": "Apply Font Color on Full text",
+            "Tags": "P1,Keyboard, AKS4",
+            "ExtendedValidation": "B6",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "B6"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "textColor"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "fontcolor"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "B6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "color: rgb(192, 0, 0)"
+            }]
+        },
+        "S4_TC28":
+        {
+            "TestCase": "Applying Font Color to multiple cells simultaneously(Range)",
+            "Tags": "P1,Keyboard, Lavish, AKS4",
+             "ExtendedValidation": "C4,C5,C6,C10",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectRange",
+                "Target": "C4:C10"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "textColor"
+            },
+            {
+                "Event": "selectElement",
+                "Target": "textBlue"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C4",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "color: rgb(0, 112, 192)"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C5",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "color: rgb(0, 112, 192)"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C6",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "color: rgb(0, 112, 192)"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C10",
+                "Target": "getAttribute",
+                "Property": "style",
+                "Expected": "color: rgb(0, 112, 192)"
+            }]
+        },
+        "S4_TC33":
+        {
+            "TestCase": "Undo Font Color to multiple cells simultaneously(Range)",
+            "Tags": "P1,Keyboard, Lavish, AKS4",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,z,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C8",
+                "Target": "getCssProperty",
+                "Property": "color",
+                "Expected": "rgba(46, 46, 46, 1)"
+            }]
+        },
+        "S4_TC38":
+        {
+            "TestCase": "Redo Font Color to multiple cells simultaneously(Range)",
+            "Tags": "P1,Keyboard, Lavish, AKS4",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "keyPress",
+                "Target": "CONTROL,y,NULL"
+            },
+            {
+                "Event": "validateCell",
+                "ActiveCell": "C8",
+                "Target": "getCssProperty",
+                "Property": "color",
+                "Expected": "rgba(0, 112, 192, 1)"
+              }]
+        }
+    },
+      "Suite 5":
+    {
+        
+        "Name": "Formula & Function",
+        "Json": "json3",
+        "S5_TC46":
+        {
+            "TestCase": "Apply SUM Formula for B2:B4",
+            "Tags": "P1,Keyboard,AKS5TC04,Formula",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "E3"
+            },
+            {
+                "Event": "enterText",
+                "Target": "=Sum(B2:B4)"
+            },
+            {
+                "Event": "keyPress",
+                "Target": "ENTER"
+            },
+           
+             {
+                "Event": "validateCell",
+                "ActiveCell": "E3",
+                "Target": "getValue",
+                "Expected": "0.04"
+            }]
+        },
+        
+          "S5_TC48":
+        {
+            "TestCase": "Apply Subtraction Formula for B10-D10",
+            "Tags": "P1,Keyboard,AKS5TC04,Formula",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "E5"
+            },
+            {
+                "Event": "enterText",
+                "Target": "=B10-D10"
+            },
+            {
+                "Event": "keyPress",
+                "Target": "ENTER"
+            },
+           
+             {
+                "Event": "validateCell",
+                "ActiveCell": "E5",
+                "Target": "getValue",
+                "Expected": "-0.18"
+            }]
+        },
+         "S5_TC49":
+        {
+            "TestCase": "Apply Multiply Formula for Zero Value =B11*C11",
+            "Tags": "P1,Keyboard,AKS5TC04,Formula",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "E7"
+            },
+            {
+                "Event": "enterText",
+                "Target": "=B11*C11"
+            },
+            {
+                "Event": "keyPress",
+                "Target": "ENTER"
+            },
+           
+             {
+                "Event": "validateCell",
+                "ActiveCell": "E7",
+                "Target": "getValue",
+                "Expected": "0"
+            }]
+        },
+         "S5_TC50":
+        {
+            "TestCase": "Apply Divide Formula for =C12/C13",
+            "Tags": "P1,Keyboard,AKS5TC04,Formula",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "E8"
+            },
+            {
+                "Event": "enterText",
+                "Target": "=C12/C13"
+            },
+            {
+                "Event": "keyPress",
+                "Target": "ENTER"
+            },
+           
+             {
+                "Event": "validateCell",
+                "ActiveCell": "E8",
+                "Target": "getValue",
+                "Expected": "1"
+            }]
+        },
+         "S5_TC47":
+        {
+            "TestCase": "Apply SUM Formula for Negtaive Range B15:D15",
+            "Tags": "P1,Keyboard,AKS5TC04,Formula",
+            "ExtendedValidation": "",
+            "SkipExtendedValProp": "",
+            "Actions": [
+            {
+                "Event": "selectCell",
+                "Target": "E9"
+            },
+            {
+                "Event": "enterText",
+                "Target": "=Sum(B15:D15)"
+            },
+            {
+                "Event": "keyPress",
+                "Target": "ENTER"
+            },
+           
+             {
+                "Event": "validateCell",
+                "ActiveCell": "E9",
+                "Target": "getValue",
+                "Expected": "1476.84"
+            }]
+        }
+    }
+}
