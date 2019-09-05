@@ -29,7 +29,7 @@
         "port": 4444,
         "cli_args":
         {
-            "webdriver.chrome.driver": "./home/runner/Painttest/node_modules/chromedriver/lib/chromedriver/chromedriver",
+            "webdriver.chrome.driver": "./home/runner/Painttest/node_modules/chromedriver/lib/chromedriver/chromedriver"
         }
     },
     "test_settings":
