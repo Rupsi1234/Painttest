@@ -62,7 +62,7 @@ commands : [{
               .waitForElementNotPresent('@documentuploadStatus',50000, function() {
                 logger.info("Document is uploaded in Item")
                 test.api
-                  .pause(500)
+                  .pause(10000)
                   .element('xpath', '//button[text()="Ok" or text()="OK"]', function(result){
                   if(result.status != -1) {
                     test
