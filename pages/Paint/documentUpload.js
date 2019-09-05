@@ -57,6 +57,7 @@ commands : [{
       }
       logger.info("Upload the Document in Item")
       try {
+      console.log(startPath);
           this
               .setValue('@setPath', require('path').resolve(String(startPath)))
               .waitForElementNotPresent('@documentuploadStatus',50000, function() {
