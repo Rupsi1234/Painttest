@@ -12,7 +12,7 @@ module.exports = (function(config) {
             "disable_colors": false,
             "globals": {
                 "visual_regression_settings": {
-                "config.webdriver.server_path" : chromedriver.path,
+                "config.webdriver.driver" : chromedriver.path,
                     "generate_screenshot_path": "defaultScreenshotPathGenerator",
                     "latest_screenshots_path": "output/reports/vrt/latest",
                     "latest_suffix": "",
