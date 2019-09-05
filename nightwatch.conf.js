@@ -1,4 +1,5 @@
- const chromedriver = require("chromedriver");
+
+
 module.exports = (function(config) {
     const argv = require('yargs').argv
    
@@ -12,7 +13,7 @@ module.exports = (function(config) {
             "disable_colors": false,
             "globals": {
                 "visual_regression_settings": {
-                "config.webdriver.driver" : chromedriver.path,
+               
                     "generate_screenshot_path": "defaultScreenshotPathGenerator",
                     "latest_screenshots_path": "output/reports/vrt/latest",
                     "latest_suffix": "",
@@ -25,6 +26,15 @@ module.exports = (function(config) {
                     "always_save_diff_screenshot": false
                 }
             },
+            selenium: {
+	        start_process: true,
+	        server_path: require('selenium-server').path,
+	        host: '127.0.0.1',
+	        port: 4444,
+	        cli_args: {
+	          'webdriver.chrome.driver': require('chromedriver').path
+	        },
+  },
             "screenshots": {
                 "enabled": false,
                 "path": ""
