@@ -1,5 +1,7 @@
  var getID = require('./../../utils/modules/getID');
   var embedID = require('./../../utils/modules/embedUrl');
+  var check=require('chromedriver').path;
+  console.log(check);
 describe('Presentation Item Acceptance Test', function(browser) {
     this.timeout(9000000);
      
