@@ -1,5 +1,7 @@
+ const chromedriver = require("chromedriver");
 module.exports = (function(config) {
     const argv = require('yargs').argv
+   config.webdriver.server_path = chromedriver.path;
     config.test_settings.default = {
         "launch_url": "http://localhost",
             "selenium_host": "127.0.0.1",

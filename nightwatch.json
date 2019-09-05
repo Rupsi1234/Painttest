@@ -27,10 +27,7 @@
         "log_path": "",
         "host": "127.0.0.1",
         "port": 4444,
-        "cli_args":
-        {
-            "webdriver.chrome.driver": "./home/runner/Painttest/node_modules/chromedriver/lib/chromedriver/chromedriver"
-        }
+       
     },
     "test_settings":
     {
