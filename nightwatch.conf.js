@@ -2,7 +2,7 @@
 
 module.exports = (function(config) {
     const argv = require('yargs').argv
-   
+   console.log(argv)
     config.test_settings.default = {
         "launch_url": "http://localhost",
             "selenium_host": "localhost",
@@ -12,9 +12,7 @@ module.exports = (function(config) {
             "skip_testcases_on_fail": true,
             "disable_colors": false,
             "globals": {
-                "visual_regression_settings": {
-               
-                    
+                   "visual_regression_settings": {
                     "latest_screenshots_path": "output/reports/vrt/latest",
                     "latest_suffix": "",
                     "baseline_screenshots_path": "output/reports/vrt/baseline",
@@ -26,18 +24,14 @@ module.exports = (function(config) {
                     "always_save_diff_screenshot": false
                 }
             },
-            selenium: {
-	        start_process: true,
-	        server_path: require('selenium-server').path,
-	       
+            "selenium": {
+            'start_process': true,
+            'server_path': require('selenium-server').path,
 	        cli_args: {
 	          'webdriver.chrome.driver': require('chromedriver').path,
-	        },
-  },
-            "screenshots": {
-                "enabled": false,
-                "path": ""
-            },
+	           },
+  	        },
+            
             "test_runner": {
                 "type": "mocha",
                 "options": {
