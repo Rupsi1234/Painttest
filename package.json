@@ -29,7 +29,7 @@
     "main": "index.js",
     "name": "Leonardo-Automation",
     "scripts": {
-        "test": "nightwatch -c ./nightwatch.json -e chrome",
+        "test": "nightwatch -c ./nightwatch.conf.js -e chrome",
         "spreadsheet": "nightwatch -c ./nightwatch.json -e chrome --testEnv=spreadsheet",
         "player": "nightwatch -c ./nightwatch.json -e chrome --testEnv=player"
     },
