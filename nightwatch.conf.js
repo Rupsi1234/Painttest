@@ -29,10 +29,10 @@ module.exports = (function(config) {
             selenium: {
 	        start_process: true,
 	        server_path: require('selenium-server').path,
-	        host: '127.0.0.1',
+	        host: 'localhost',
 	        port: 4444,
 	        cli_args: {
-	          'webdriver.chrome.driver': "./utils/drivers/chromedriver"
+	          'webdriver.chrome.driver': require('chromedriver').path,
 	        },
   },
             "screenshots": {
