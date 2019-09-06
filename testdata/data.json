@@ -1,6 +1,6 @@
 {
     "qa" : {
-        "url": "https://leonardo-paint-qa.herokuapp.com",
+        "url": "https://leonardo-paint-stg.herokuapp.com",
         "org" : "leonardo-dev",
         "username": "qa_automation",
         "password": "qa_automation",
