@@ -2,7 +2,7 @@
 
 module.exports = (function(config) {
     const argv = require('yargs').argv
-   console.log(argv)
+  
     config.test_settings.default = {
         "launch_url": "http://localhost",
             "selenium_host": "localhost",
@@ -25,10 +25,11 @@ module.exports = (function(config) {
                 }
             },
             "selenium": {
-            'start_process': true,
-            'server_path': require('selenium-server').path,
-	        cli_args: {
-	          'webdriver.chrome.driver': require('chromedriver').path,
+            "start_process": true,
+            "server_path": require('selenium-server').path,
+	        "cli_args": {
+	          "webdriver.chrome.driver": require('chromedriver').path
+	           
 	           },
   	        },
             
@@ -55,6 +56,7 @@ module.exports = (function(config) {
                 "retryAssertionTimeout": 5000
             }
     };
+    console.log(require('chromedriver').path)
     if (argv.grep) {
         config.test_settings.default.test_runner.options.grep = argv.grep
     }
