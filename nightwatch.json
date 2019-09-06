@@ -30,7 +30,6 @@
             "desiredCapabilities":
             {
                 "browserName": "chrome",
-                "acceptSslCerts": true,
                 "javascriptEnabled": true
             }
         }
