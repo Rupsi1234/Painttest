@@ -32,7 +32,7 @@ module.exports = (function(config) {
 	        host: 'localhost',
 	        port: 4444,
 	        cli_args: {
-	          'webdriver.chrome.driver': require('chromedriver').path,
+	          'webdriver.chrome.driver': "/home/runner/Painttest/node_modules/chromedriver/lib/chromedriver/chromedriver",
 	        },
   },
             "screenshots": {
