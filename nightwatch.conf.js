@@ -5,7 +5,7 @@ module.exports = (function(config) {
    
     config.test_settings.default = {
         "launch_url": "http://localhost",
-            "selenium_host": "127.0.0.1",
+            "selenium_host": "localhost",
             "selenium_port": 4444,
             "silent": true,
             "persist_globals": true,
@@ -14,7 +14,7 @@ module.exports = (function(config) {
             "globals": {
                 "visual_regression_settings": {
                
-                    "generate_screenshot_path": "defaultScreenshotPathGenerator",
+                    
                     "latest_screenshots_path": "output/reports/vrt/latest",
                     "latest_suffix": "",
                     "baseline_screenshots_path": "output/reports/vrt/baseline",
@@ -29,10 +29,9 @@ module.exports = (function(config) {
             selenium: {
 	        start_process: true,
 	        server_path: require('selenium-server').path,
-	        host: 'localhost',
-	        port: 4444,
+	       
 	        cli_args: {
-	          'webdriver.chrome.driver': "/home/runner/Painttest/node_modules/chromedriver/lib/chromedriver/chromedriver",
+	          'webdriver.chrome.driver': require('chromedriver').path,
 	        },
   },
             "screenshots": {
