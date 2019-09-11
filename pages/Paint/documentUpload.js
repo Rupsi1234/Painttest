@@ -44,31 +44,28 @@ commands : [{
 
       path = require('path')
       var test=this
-      if (this.api.globals.configFile != undefined) {
+      if (this.api.globals.configFile != undefined && this.api.globals.configFile.testDataBaseFolder != "") {
         var startPath = this.api.globals.configFile.testDataBaseFolder + start
         var finalPath = this.api.globals.configFile.testDataBaseFolder + final
 
       } else {
-        // var reqPath = path.join(__dirname, '../')
-        // var startPath = reqPath +'testdata/'+ start
-        // var finalPath = reqPath +'testdata/'+ final
         var startPath = currentDirPath +'/testdata/'+ start
         var finalPath = currentDirPath +'/testdata/'+ final
       }
       logger.info("Upload the Document in Item")
       try {
-      console.log(startPath);
           this
               .setValue('@setPath', require('path').resolve(String(startPath)))
               .waitForElementNotPresent('@documentuploadStatus',50000, function() {
                 logger.info("Document is uploaded in Item")
                 test.api
-                  .pause(10000)
+                  .pause(500)
                   .element('xpath', '//button[text()="Ok" or text()="OK"]', function(result){
                   if(result.status != -1) {
                     test
                       .api.useXpath()
                       .waitForElementPresent('//button[text()="Ok" or text()="OK"]', 5000)
+                      .click('//div[contains(@style, "display: block")]//label[contains(text(), "Regenerate Rules")]')
                       .click('//button[text()="Ok" or text()="OK"]')
                       .useCss()
                       .waitForElementNotPresent('div[style="display: block;"]', 5000)

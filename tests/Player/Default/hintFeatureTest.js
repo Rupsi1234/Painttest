@@ -28,103 +28,190 @@ describe ('Hint Feature Test', function(client) {
         done();
     });
 
-	it('TC01 - Precheck - Check Hint count', function(client) {
+	it('TC.HP.00 - Enable Hint Check', function(client) {
 		
 		embedPlayer
+			.waitForElementVisible(properties.get('showHint'), 5000)
 			.click(properties.get('showHint'))
-			.verify.elementCount(embedPlayer.elements.activeHintCells.selector, 5)
+			.verify.elementCount(embedPlayer.elements.activeHintCells.selector, 10)
 	})
 
 	it('TC.HP.01 - Check Single Tooltip Hint on a cell', function(client) {
-
+		
 		embedPlayer
-			.selectCell('A1')
+			.selectCell('D1')
+			.waitForElementVisible(embedPlayer.elements.remainingHintsCount.selector, 5000)
 			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '1')
 			.click(embedPlayer.elements.revealHint.selector)
 			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.validateHintTextForCell('D1', 1, "Enter the value as 15%")
+			.validatePenaltyForCell('D1', 1, 3)
+			.click(embedPlayer.elements.closeHintContainer.selector)
 	});
 
-
-
-
-
-
-
-
-
-
-
-	it('TC03 - Validate Tooltip for cell B6', function(client) {
-
+	it('TC.HP.02 - Check Single Fill Cell hint on a cell (default Tooltip text)', function(client) {
+		
 		embedPlayer
-			.validateTooltipForCell('B6', 'Cell Text should be "50,000".')
+			.selectCell('B18')
+			.waitForElementVisible(embedPlayer.elements.remainingHintsCount.selector, 5000)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '1')
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.validateHintTextForCell('B18', 1, "We have entered the value for you.")
+			.validatePenaltyForCell('B18', 1, 3)
+			.click(embedPlayer.elements.closeHintContainer.selector)
+			.verify.containsText("div.leo-canvasarea .k-spreadsheet-cell.k-spreadsheet-active-cell", "$227,500.00")
 	});
 
-	it('TC04 - Validate Try Again functionality', function(client) {
-
+	it('TC.HP.03 - Check Single Fill Cell hint on a cell (modified Tooltip text)', function(client) {
+		
 		embedPlayer
-			.click(properties.get('tryAgainButton'))
-			.verify.elementCount(embedPlayer.elements.correctCells.selector, 0)
-			.verify.elementCount(embedPlayer.elements.incorrectCells.selector, 0)
-			.verify.elementCount(embedPlayer.elements.partialCorrectCells.selector, 0)
+			.selectCell('C18')
+			.waitForElementVisible(embedPlayer.elements.remainingHintsCount.selector, 5000)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '1')
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.validateHintTextForCell('C18', 1, 'The formula to be filled is "=SUM(C6:C17)"')
+			.validatePenaltyForCell('C18', 1, 3)
+			.click(embedPlayer.elements.closeHintContainer.selector)
+			.verify.containsText("div.leo-canvasarea .k-spreadsheet-cell.k-spreadsheet-active-cell", "$114,090.00")
 	});
 
-	it('TC05 - Check My Work for few correct and few incorrect cell values - Text, Accounting, Percent and Decimal Values', function(client) {
+	it('TC.HP.06 - Check Multiple Hints on a cell with formatting available(Tooltip and Fill Hint)', function(client) {
+		
+		embedPlayer
+			.selectCell('D2')
+			.waitForElementVisible(embedPlayer.elements.remainingHintsCount.selector, 5000)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '2')
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '1')
+			.validateHintTextForCell('D2', 1, 'Bold needs to be applied')
+			.validatePenaltyForCell('D2', 1, 1)
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.validateHintTextForCell('D2', 2, 'We have entered the value for you.')
+			.validatePenaltyForCell('D2', 2, 2)
+			.click(embedPlayer.elements.closeHintContainer.selector)
+			.verify.containsText("div.leo-canvasarea .k-spreadsheet-cell.k-spreadsheet-active-cell", "35.80%")
+	});
 
-		embedPlayer.api
-			.selectCell('B1')
-			.keys(client.Keys.DELETE)
-			.enterText('500000')
-			.selectCell('B6')
-			.keys(client.Keys.DELETE)
-			.enterText('50000')
-			.selectCell('B7')
-			.keys(client.Keys.DELETE)
-			.enterText('5')
-			.selectCell('B12')
-			.keys(client.Keys.DELETE)
-			.enterText('2.00')
+	it('TC.HP.12 - Check Group Hint on Multiple Cells', function(client) {
+		
+		embedPlayer
+			.selectCell('C11')
+			.waitForElementVisible(embedPlayer.elements.remainingHintsCount.selector, 5000)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '3')
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '2')
+			.click(embedPlayer.elements.closeHintContainer.selector)
+			.validateHintTextForCell('B12', 1, 'Value should be in Accounting Format')
+			.validatePenaltyForCell('B12', 1, 5)
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '1')
+			.click(embedPlayer.elements.closeHintContainer.selector)
+			.validateHintTextForCell('C13', 2, 'Apply correct alignment')
+			.validatePenaltyForCell('C13', 2, 3)
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.click(embedPlayer.elements.closeHintContainer.selector)
+			.validateHintTextForCell('C11', 3, 'This will cost 10 marks')
+			.validatePenaltyForCell('C11', 3, 10)
+			.click(embedPlayer.elements.closeHintContainer.selector)
+	});
+
+	it('TC.HP.13 - Check Hints will be renewed after the user clicks Try Again button', function(client) {
+		
+		embedPlayer
+			.selectCell('A1')
+			.waitForElementVisible(embedPlayer.elements.remainingHintsCount.selector, 5000)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '1')
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.click(embedPlayer.elements.closeHintContainer.selector)
+			.waitForElementVisible(properties.get('checkMyWorkButton'), 5000)
 			.click(properties.get('checkMyWorkButton'))
-			.verify.elementCount(embedPlayer.elements.correctCells.selector, 18)
-			.verify.elementCount(embedPlayer.elements.incorrectCells.selector, 16)
-			.verify.elementCount(embedPlayer.elements.partialCorrectCells.selector, 0);
-	});
-
-	it('TC06 - Validate Try Again does not reset the cell values - Check for cell B1', function(client) {
-
-		embedPlayer	
-			.validateTooltipForCell('E22', 'Cell Text should be "$ 2.25".')
+			.waitForElementVisible(properties.get('tryAgainButton'), 5000)
 			.click(properties.get('tryAgainButton'))
-			.verify.elementCount(embedPlayer.elements.correctCells.selector, 0)
-			.verify.elementCount(embedPlayer.elements.incorrectCells.selector, 0)
-			.verify.elementCount(embedPlayer.elements.partialCorrectCells.selector, 0)
-			.verify.containsText(getSelector.getSelectorForCell('B1'), "$ 500,000")
+			.waitForElementVisible(properties.get('showHint'), 5000)
+			.click(properties.get('showHint'))		
+			.waitForElementVisible(embedPlayer.elements.remainingHintsCount.selector, 5000)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '1')
+			.verify.elementPresent(embedPlayer.elements.revealHint.selector)
+			.click(embedPlayer.elements.closeHintContainer.selector)
 	});
 
-	it('TC07 - Check My Work after entering Formulas in cells - Perfect Scenario', function(client) {
-
-		client
-			.selectCell('D18')
-			.keys(client.Keys.DELETE)
-			.enterText('=IF(D15<=$B7+1, $B8, $B10)')
-			.selectCell('F18')
-			.keys(client.Keys.DELETE)
-			.enterText('=IF(F15<=$B7+1, $B8, $B10)')
+	it('TC.HP.14 - Check Toggle Hint Functionality: The user should be able to toggle on/off the Hint Button', function(client) {
+		
+		embedPlayer
+			.waitForElementVisible(properties.get('checkMyWorkButton'), 5000)
 			.click(properties.get('checkMyWorkButton'))
-			.verify.elementCount(embedPlayer.elements.correctCells.selector, 34)
-			.verify.elementCount(embedPlayer.elements.incorrectCells.selector, 0)
-			.verify.elementCount(embedPlayer.elements.partialCorrectCells.selector, 0);
-	});
-
-	it('TC08 - Validate Reset functionality removes all the user entered values', function(client) {
-
-		embedPlayer	
+			.waitForElementVisible(properties.get('tryAgainButton'), 5000)
 			.click(properties.get('tryAgainButton'))
+			.waitForElementVisible(properties.get('resetButton'), 5000)
 			.click(properties.get('resetButton'))
-			.verify.elementCount(embedPlayer.elements.correctCells.selector, 0)
-			.verify.elementCount(embedPlayer.elements.incorrectCells.selector, 0)
-			.verify.containsText(getSelector.getSelectorForCell('B1'), "")
+			.waitForElementVisible(properties.get('showHint'), 5000)
+			.click(properties.get('showHint'))
+			.verify.elementCount(embedPlayer.elements.activeHintCells.selector, 10)
+			.click(properties.get('closeHint'))
+			.verify.elementCount(embedPlayer.elements.activeHintCells.selector, 0)
+	});
 
+	it('TC.HP.15 - Check Hint Functionality after pressing Reset button (Fill Text Use case)', function(client) {
+		
+		embedPlayer
+			.waitForElementVisible(properties.get('checkMyWorkButton'), 5000)
+			.click(properties.get('checkMyWorkButton'))
+			.waitForElementVisible(properties.get('tryAgainButton'), 5000)
+			.click(properties.get('tryAgainButton'))
+			.waitForElementVisible(properties.get('showHint'), 5000)
+			.click(properties.get('showHint'))
+			.verify.elementCount(embedPlayer.elements.activeHintCells.selector, 10)
+			.selectCell('A3')
+			.waitForElementVisible(embedPlayer.elements.remainingHintsCount.selector, 5000)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '1')
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.click(embedPlayer.elements.closeHintContainer.selector)
+			.verify.containsText("div.leo-canvasarea .k-spreadsheet-cell.k-spreadsheet-active-cell", "March 31, 2018")
+			.waitForElementVisible(properties.get('resetButton'), 5000)
+			.click(properties.get('resetButton'))
+			.waitForElementVisible(properties.get('showHint'), 5000)
+			.click(properties.get('showHint'))
+			.selectCell('A3')
+			.verify.containsText("div.leo-canvasarea .k-spreadsheet-cell.k-spreadsheet-active-cell", "March 31, 2018")
+			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.validateHintTextForCell('A3', 1, 'We have entered the date for you.')
+			.validatePenaltyForCell('A3', 1, 2)
+	});
+
+	it('TC.HP.16 - Check Hint Functionality after pressing Reset button (Tool Tip Use case)', function(client) {
+		
+		embedPlayer
+			.waitForElementVisible(properties.get('checkMyWorkButton'), 5000)
+			.click(properties.get('checkMyWorkButton'))
+			.waitForElementVisible(properties.get('tryAgainButton'), 5000)
+			.click(properties.get('tryAgainButton'))
+			.waitForElementVisible(properties.get('resetButton'), 5000)
+			.click(properties.get('resetButton'))
+			.waitForElementVisible(properties.get('showHint'), 5000)
+			.click(properties.get('showHint'))
+			.verify.elementCount(embedPlayer.elements.activeHintCells.selector, 10)
+			.selectCell('A6')
+			.waitForElementVisible(embedPlayer.elements.remainingHintsCount.selector, 5000)
+			.verify.containsText(embedPlayer.elements.remainingHintsCount.selector, '1')
+			.click(embedPlayer.elements.revealHint.selector)
+			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.click(embedPlayer.elements.closeHintContainer.selector)
+			.verify.containsText("div.leo-canvasarea .k-spreadsheet-cell.k-spreadsheet-active-cell", "")
+			.waitForElementVisible(properties.get('resetButton'), 5000)
+			.click(properties.get('resetButton'))
+			.waitForElementVisible(properties.get('showHint'), 5000)
+			.click(properties.get('showHint'))
+			.selectCell('A6')
+			.verify.containsText("div.leo-canvasarea .k-spreadsheet-cell.k-spreadsheet-active-cell", "")
+			.verify.elementNotPresent(embedPlayer.elements.remainingHintsCount.selector)
+			.validateHintTextForCell('A6', 1, 'Cash needs to be filled')
+			.validatePenaltyForCell('A6', 1, 2)
 	});
 
 	afterEach(function (client, done) {

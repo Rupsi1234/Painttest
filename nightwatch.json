@@ -1,5 +1,5 @@
 {
-    "src_folders": "./tests/Paint/Default/AcceptanceTest",
+    "src_folders": "./tests",
     "output_folder": "./output/reports",
     "custom_commands_path": [
         "./utils/custom-commands",
