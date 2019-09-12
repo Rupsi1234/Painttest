@@ -4,7 +4,7 @@
         "argv": "0.0.2",
         "asyncawait": "^1.0.6",
         "chai": "^4.1.2",
-        "chromedriver": "^76.0.1",
+        "chromedriver": "^2.36.0",
         "csv-load-sync": "^1.0.0",
         "csv-parse": "^3.2.0",
         "csv-parser": "^2.1.0",
@@ -19,7 +19,7 @@
         "properties-reader": "0.0.16",
         "read-json-sync": "^2.0.0",
         "rimraf": "^2.6.2",
-        "selenium-server": "^3.141.59",
+        "selenium-server": "^3.4.0",
         "winston": "^3.0.0",
         "winston-daily-rotate-file": "^3.3.1",
         "yargs": "^11.0.0"
