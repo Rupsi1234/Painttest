@@ -30,7 +30,7 @@
     "name": "Leonardo-Automation",
     "scripts": {
         "playerstg": "nightwatch -c ./nightwatch.json -e chrome",
-        "test": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/Paint/Default\" --testEnv=qa",
+        "test": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/Paint/Default/AcceptanceTest\" --testEnv=qa",
         "itemRendererPlayerStg": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/ItemRenderer/LeoSpreadsheet\" --app=player --testEnv=staging",
         "itemRendererSpreadsheet": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/ItemRenderer/LeoSpreadsheet\" --app=spreadsheet --testEnv=staging",
         "test1": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/Player/Default/playerAcceptanceTest_Grid_HBP.js\" --testEnv=staging"
