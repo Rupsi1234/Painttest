@@ -69,8 +69,8 @@ commands : [{
                       .click('//button[text()="Ok" or text()="OK"]')
                       .useCss()
                       .waitForElementNotPresent('div[style="display: block;"]', 5000)
-                  }*/
-                })   
+                  }
+                })   */
 
               })
             } 
