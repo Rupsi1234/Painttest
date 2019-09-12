@@ -1,6 +1,5 @@
 var getID = require(currentDirPath + '/utils/modules/getID');
 var embedID = require(currentDirPath + '/utils/modules/embedUrl');
-var check=require('chromedriver').path;
 describe ('Question Item Acceptance Test', function(client) {
 
 	this.timeout(90000000);
@@ -79,7 +78,16 @@ describe ('Question Item Acceptance Test', function(client) {
 					.verify.containsText(properties.get("activeTabText"), "Instructions", "Instructions Tab is not active") 
 					.clickRow(1)
 					.enterInstructionText("Instruction 1 Text")
-					
+					.clickRow(2)
+					.enterInstructionText("Instruction 2 Text")
+					.clickRow(3)
+					.enterInstructionText("Instruction 3 Text")
+					.selectTextForRow(2)
+					.selectFormattingToolbarOption(1)
+					.verify.elementPresent('div.content-area p:nth-child(2) b')
+					.selectFormattingToolbarOption(3)
+					.verify.elementPresent('div.content-area p:nth-child(2) u')
+					.clickRow(3)
 					.click(properties.get("nextButton"));
 			})
 			
@@ -139,7 +147,7 @@ describe ('Question Item Acceptance Test', function(client) {
 	        }) 
 	});
 
-	/*it('Question Workflow Validation using workbook having single sheet', function(client) {
+	it('Question Workflow Validation using workbook having single sheet', function(client) {
 		var title = "Question-Item - With Single Sheet"
 		client
 			.waitUntilLoaderPresent(function() {
@@ -239,7 +247,7 @@ describe ('Question Item Acceptance Test', function(client) {
 	            	.closePreview()
 	        }) 
 	});
-	*/
+	
 	afterEach(function (client, done) {
         testcase_name = this.currentTest.title;
         logger.info("Completed following Test Case: " + testcase_name)
