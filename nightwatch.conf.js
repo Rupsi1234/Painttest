@@ -28,7 +28,7 @@ module.exports = (function(config) {
             "start_process": true,
             "server_path": require('selenium-server').path,
 	        "cli_args": {
-	          "webdriver.chrome.driver": "./utils/drivers/chromedriver.exe"
+	          "webdriver.chrome.driver": require('chromedriver').path
 	           
 	           },
   	        },
