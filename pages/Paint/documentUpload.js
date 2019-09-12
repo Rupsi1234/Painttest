@@ -60,7 +60,7 @@ commands : [{
                 logger.info("Document is uploaded in Item")
                 test.api
                   .pause(500)
-                  .element('xpath', '//button[text()="Ok" or text()="OK"]', function(result){
+                /*  .element('xpath', '//button[text()="Ok" or text()="OK"]', function(result){
                   if(result.status != -1) {
                     test
                       .api.useXpath()
@@ -69,7 +69,7 @@ commands : [{
                       .click('//button[text()="Ok" or text()="OK"]')
                       .useCss()
                       .waitForElementNotPresent('div[style="display: block;"]', 5000)
-                  }
+                  }*/
                 })   
 
               })

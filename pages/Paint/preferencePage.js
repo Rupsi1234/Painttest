@@ -72,6 +72,7 @@ module.exports ={
 		 			.setValue('@startCell',start)
 		 			.clearValue('@endCell')
 		 		   .setValue('@endCell',end)
+		 		   .api.pause(1000)
 		 		   logger.info(start + " is updated as Start Cell Value")
 		 		   logger.info(end + " is updated as End Cell Value")
 		 	} 
