@@ -29,11 +29,11 @@
     "main": "index.js",
     "name": "Leonardo-Automation",
     "scripts": {
-        "test": "nightwatch -c ./nightwatch.json -e chrome",
+        "playerstg": "nightwatch -c ./nightwatch.json -e chrome",
         "paintStg": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/Paint/Default\" --testEnv=staging",
         "itemRendererPlayerStg": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/ItemRenderer/LeoSpreadsheet\" --app=player --testEnv=staging",
         "itemRendererSpreadsheet": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/ItemRenderer/LeoSpreadsheet\" --app=spreadsheet --testEnv=staging",
-        "playerStg": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/Player/Default\" --testEnv=staging"
+        "test": "nightwatch -c ./nightwatch.json -e chrome --srcFolder=\"./tests/Player/Default\" --testEnv=staging"
     },
     "version": "1.0.0"
 }
