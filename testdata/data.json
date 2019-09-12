@@ -1,13 +1,14 @@
 {
     "qa" : {
-        "url": "https://leonardo-paint-stg.herokuapp.com",
+        "url": "http://leonardo-paint-integration.herokuapp.com",
         "org" : "leonardo-dev",
-        "username": "qa_automation",
-        "password": "qa_automation",
+        "username": "qa_author1",
+        "password": "Compro11",
         "playerURLMultiSubItems_TopBottom": "https://leonardo-sdk-dev.herokuapp.com/embedframe/Syy6VMyhm",
         "playerURLMultiSubItems_TopBottom1": "https://leonardo-sdk-dev.herokuapp.com/embedframe/ry9B9P6A7",
         "playerURL_Gridview_HBP_old": "https://leonardo-sdk-dev.herokuapp.com/embedframe/ryl-iApi7",
-        "playerURL_Gridview_HBP": "https://leonardo-sdk-dev.herokuapp.com/embedframe/l29eYsZPSt"
+        "playerURL_Gridview_HBP": "https://leonardo-sdk-dev.herokuapp.com/embedframe/l29eYsZPSt",
+        "hintPlayerURL": "https://leonardo-sdk-dev.herokuapp.com/embedframe/l0jTq4hT6d"
     },
 
     "staging" : {
@@ -17,6 +18,7 @@
         "password": "qa_automation",
         "playerURL": "https://leonardo-sdk-stg.herokuapp.com/embedframe/HJRC9R1_7",
         "playerURLMultiSubItems": "https://leonardo-sdk-stg.herokuapp.com/embedframe/BkHhdayOX",
-        "playerURL_Gridview_HBP": "https://leonardo-sdk-stg.herokuapp.com/embedframe/lRNEqnZAJd"
+        "playerURL_Gridview_HBP": "https://leonardo-sdk-stg.herokuapp.com/embedframe/lRNEqnZAJd",
+        "hintPlayerURL": "https://leonardo-sdk-stg.herokuapp.com/embedframe/lwsLAIDKTl"
     }
 }

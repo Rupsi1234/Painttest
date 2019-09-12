@@ -1,6 +1,6 @@
 var fs = require('fs');
 var configFile = JSON.parse(fs.readFileSync(currentDirPath + '/testdata/editItemConfig.json'));
-inputData = JSON.parse(fs.readFileSync(currentDirPath + configFile["inputJson"]));
+inputData = JSON.parse(fs.readFileSync(currentDirPath + configFile[argv.testEnv].inputJson));
 
 describe ('Bulk Item Update and Publish', function(client) {
   this.timeout(9000000);
@@ -13,14 +13,14 @@ describe ('Bulk Item Update and Publish', function(client) {
     previewPublishPage = client.page.previewPublishPage();
     headerFooterPage=client.page.headerFooterPage();
     
-    client.globals.configFile = configFile;
+    client.globals.configFile = configFile[argv.testEnv];
           
     client
       .maximizeWindow()
-      .url(configFile["url"], function() {
+      .url(configFile[argv.testEnv].url, function() {
         logger.info("Login Page is displayed")
         loginPage
-          .loginWithDetails(configFile["org"], configFile["username"], configFile["password"])
+          .loginWithDetails(configFile[argv.testEnv].org, configFile[argv.testEnv].username, configFile[argv.testEnv].password)
       })
       .waitUntilLoaderPresent(function() {
         done();
@@ -47,7 +47,7 @@ describe ('Bulk Item Update and Publish', function(client) {
     
  
 function presentation(itemDetails, client) {
-  var presentationUrl = configFile["url"] + "/#/presentation/item/" + itemDetails.itemId + "/document"
+  var presentationUrl = configFile[argv.testEnv].url + "/#/presentation/item/" + itemDetails.itemId + "/document"
   client
     .url(presentationUrl)
     .waitUntilLoaderPresent(function() {
@@ -72,7 +72,7 @@ function presentation(itemDetails, client) {
 }
 
 function question(itemDetails, client) {
-  var questionUrl = configFile["url"] + "/#/question/item/" + itemDetails.itemId + "/document"
+  var questionUrl = configFile[argv.testEnv].url + "/#/question/item/" + itemDetails.itemId + "/document"
   client
     .url(questionUrl)
     .waitUntilLoaderPresent(function() {
