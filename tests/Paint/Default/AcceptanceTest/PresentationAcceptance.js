@@ -116,7 +116,7 @@ describe('Presentation Item Acceptance Test', function(client) {
         dashBoardPage
           .openItemPreview(ItemId)
           .verify.cssClassPresent(dashBoardPage.elements.previewActiveCell.selector, 'k-state-disabled', 'Item is Editable')
-          .verify.containsText(dashBoardPage.elements.previewActiveCellData.selector, 'Cruise', 'Text is not visible');
+          //.verify.containsText(dashBoardPage.elements.previewActiveCellData.selector, 'Cruise', 'Text is not visible');
         previewPublishPage
           .closePreview()
       }) 
