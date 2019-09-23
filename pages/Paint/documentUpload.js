@@ -59,18 +59,17 @@ commands : [{
               .waitForElementNotPresent('@documentuploadStatus',50000, function() {
                 logger.info("Document is uploaded in Item")
                 test.api
-                  .pause(500)
-                /*  .element('xpath', '//button[text()="Ok" or text()="OK"]', function(result){
+                  .element('xpath', '//div[contains(@class, "modal") and contains(@style, "display: block")]//button[text()="Ok" or text()="OK"]', function(result){
                   if(result.status != -1) {
                     test
                       .api.useXpath()
-                      .waitForElementPresent('//button[text()="Ok" or text()="OK"]', 5000)
-                      .click('//div[contains(@style, "display: block")]//label[contains(text(), "Regenerate Rules")]')
-                      .click('//button[text()="Ok" or text()="OK"]')
+                      .waitForElementPresent('//div[contains(@class, "modal") and contains(@style, "display: block")]//button[text()="Ok" or text()="OK"]', 5000)
+                      .click('//div[contains(@style, "display: block")]//label[contains(text(), "Regenerate")]')
+                      .click('//div[contains(@class, "modal") and contains(@style, "display: block")]//button[text()="Ok" or text()="OK"]')
                       .useCss()
                       .waitForElementNotPresent('div[style="display: block;"]', 5000)
                   }
-                })   */
+                })   
 
               })
             } 
@@ -104,7 +103,7 @@ commands : [{
       return this
   
   },
-  openPreviewdocument(documentoption)
+  openPreviewDocument(documentoption)
      {
       var previewDocument='upload-document[filepicker=\'filepicker'+documentoption+'\'] .fa.fa-file-text'
            try {
@@ -122,7 +121,7 @@ commands : [{
      return this
       },
 
-    closePreviewdocument()
+    closePreviewDocument()
     {
       
           logger.info("Close the Preview")

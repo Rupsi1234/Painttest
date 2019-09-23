@@ -8,7 +8,7 @@ module.exports = {
       },
     previewActiveCell:
       {
-        selector: '.k-selection-wrapper>.k-spreadsheet-active-cell'
+        selector: '.k-selection-wrapper >.k-spreadsheet-active-cell'
       },
     previewActiveCellData:
       {

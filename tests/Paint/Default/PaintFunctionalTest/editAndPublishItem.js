@@ -64,6 +64,10 @@ function presentation(itemDetails, client) {
         .verify.containsText(properties.get("activeTabText"), "Publish", "Documents Tab is not active") 
         .validatePublishCheckpoints()
         .rePublishItem("override")
+        .api.useXpath()
+        .verify.containsText(previewPublishPage.elements.itemState.selector, "Published", "Item failed to publish")
+        .verify.containsText(previewPublishPage.elements.publishedID.selector, "leo-leonardo-dev", "Item failed to publish")
+        .useCss();
     })
     .click(properties.get("finishButton"))
     .waitUntilLoaderPresent(function() {
@@ -95,8 +99,10 @@ function question(itemDetails, client) {
         .verify.containsText(properties.get("activeTabText"), "Preview & Publish", "Preview & Publish Tab is not active") 
         .validatePublishCheckpoints()
         .rePublishItem("override")
-        .verify.containsText("span.title-tag:nth-child(3) span:last-child", "Published", "Item failed to publish")
-        .verify.containsText("span.title-tag:nth-child(4) span:first-child", "Published ID", "Item failed to publish")
+        .api.useXpath()
+        .verify.containsText(previewPublishPage.elements.itemState.selector, "Published", "Item failed to publish")
+        .verify.containsText(previewPublishPage.elements.publishedID.selector, "leo-leonardo-dev", "Item failed to publish")
+        .useCss();
     })   
     .click(properties.get("finishButton"))
     .waitUntilLoaderPresent(function() {

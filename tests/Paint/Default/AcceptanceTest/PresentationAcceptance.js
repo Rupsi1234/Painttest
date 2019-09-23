@@ -42,11 +42,11 @@ describe('Presentation Item Acceptance Test', function(client) {
       .waitUntilLoaderPresent(function() {
         done();
       })
-  }),
+  })
       
   beforeEach(function (client, done) {
     testcase_name = this.currentTest.title;
-    testcase_name=testcase_name.substring(testcase_name.lastIndexOf("\\")+1)
+    testcase_name = testcase_name.substring(testcase_name.lastIndexOf("\\")+1)
     logger.info("Executing following Test Case: " + testcase_name.substring(testcase_name.lastIndexOf('\\')+1))
     done();
   });
@@ -69,6 +69,7 @@ describe('Presentation Item Acceptance Test', function(client) {
           .verify.containsText(properties.get("activeTabText"), "Setup", "SetUp Tab is not active") 
           .verify.value('#title',Title,'SetUp Page Title is not Correct')
           .enterSetupDetails("Description","Other Tag")
+          .verify.containsText('#other div.tag-sel-item', "Other Tag", "Tag not entered correctly")
           .click(properties.get("nextButton"))
       })
       
@@ -77,17 +78,18 @@ describe('Presentation Item Acceptance Test', function(client) {
           .verify.containsText(properties.get("activeTabText"), "Document", "Documents Tab is not active") 
           .uploadDocument('Motion_Profile.xlsx')
           .verify.containsText(documentUpload.elements.submissionStatus1.selector, String("Uploaded on").trim())
-          .openPreviewdocument('1')
+          .openPreviewDocument('1')
           .verify.containsText(documentUpload.elements.previewWindowHeader.selector,'Presentation Document')
           .verify.containsText(documentUpload.elements.activeCellData.selector,'Segment Type')
-          .closePreviewdocument()
+          .closePreviewDocument()
           .click(properties.get("nextButton"))
       })
         
       .waitUntilLoaderPresent(function(){
         preferencePage
           .verify.containsText(properties.get("activeTabText"), "Preference", "Documents Tab is not active") 
-          .selectSheet("Building Profile1")
+          .waitForElementPresent('div.leo-presentationwidget', 10000)
+          .selectSheet("Building Profile")
           .verify.containsText(preferencePage.elements.activeSheet.selector, "Building Profile", "Sheet is not selected coprrectly")
           .cellRange("A5","E10")
           .enableToggleButton("Formula Bar")
@@ -103,6 +105,11 @@ describe('Presentation Item Acceptance Test', function(client) {
           .openPreview()
           .closePreview()
           .publishItem()
+          .api.useXpath()
+          .verify.containsText(previewPublishPage.elements.itemState.selector, "Published", "Item failed to publish")
+          .verify.containsText(previewPublishPage.elements.publishedID.selector, "leo-leonardo-dev", "Item failed to publish")
+          .useCss();
+
         getID
           .getLeonardoID(client1)
           .then(function(value) {
@@ -115,8 +122,9 @@ describe('Presentation Item Acceptance Test', function(client) {
       .waitUntilLoaderPresent(function() {
         dashBoardPage
           .openItemPreview(ItemId)
+          .waitForElementPresent(dashBoardPage.elements.previewActiveCellData.selector, 5000)
           .verify.cssClassPresent(dashBoardPage.elements.previewActiveCell.selector, 'k-state-disabled', 'Item is Editable')
-          //.verify.containsText(dashBoardPage.elements.previewActiveCellData.selector, 'Cruise', 'Text is not visible');
+          .verify.containsText(dashBoardPage.elements.previewActiveCellData.selector, 'Cruise', 'Text is not visible');
         previewPublishPage
           .closePreview()
       }) 
@@ -134,7 +142,7 @@ describe('Presentation Item Acceptance Test', function(client) {
                 })
           .waitUntilLoaderPresent(function() {
               documentUpload
-                          .closePreviewdocument()
+                          .closePreviewDocument()
          
          })*/
         
@@ -159,6 +167,7 @@ describe('Presentation Item Acceptance Test', function(client) {
           .verify.containsText(properties.get("activeTabText"), "Setup", "SetUp Tab is not active") 
           .verify.value('#title',Title,'SetUp Page Title is not Correct')
           .enterSetupDetails("Description","Other Tag")
+          .verify.containsText('#other div.tag-sel-item', "Other Tag", "Tag not entered correctly")          
           .click(properties.get("nextButton"))
       })
       
@@ -167,16 +176,17 @@ describe('Presentation Item Acceptance Test', function(client) {
           .verify.containsText(properties.get("activeTabText"), "Document", "Documents Tab is not active") 
           .uploadDocument('MultiSheet_Final.xlsx')
           .verify.containsText(documentUpload.elements.submissionStatus1.selector, String("Uploaded on").trim())
-          .openPreviewdocument('1')
+          .openPreviewDocument('1')
           .verify.containsText(documentUpload.elements.previewWindowHeader.selector,'Presentation Document')
           .verify.containsText(documentUpload.elements.activeCellData.selector,'100')
-          .closePreviewdocument()
+          .closePreviewDocument()
           .click(properties.get("nextButton"))
       })
       
       .waitUntilLoaderPresent(function(){
         preferencePage
           .verify.containsText(properties.get("activeTabText"), "Preference", "Documents Tab is not active") 
+          .waitForElementPresent('div.leo-presentationwidget', 10000)
           .selectSheet("All Sheets")
           .verify.containsText(preferencePage.elements.activeSheet.selector, "All Sheets", "Sheet is not selected coprrectly")
           .enableToggleButton("All")
@@ -195,6 +205,11 @@ describe('Presentation Item Acceptance Test', function(client) {
           .openPreview()
           .closePreview()
           .publishItem()
+          .api.useXpath()
+          .verify.containsText(previewPublishPage.elements.itemState.selector, "Published", "Item failed to publish")
+          .verify.containsText(previewPublishPage.elements.publishedID.selector, "leo-leonardo-dev", "Item failed to publish")
+          .useCss();
+
         getID
           .getLeonardoID(client1)
           .then(function(value) {
@@ -207,6 +222,7 @@ describe('Presentation Item Acceptance Test', function(client) {
       .waitUntilLoaderPresent(function() {
         dashBoardPage
           .openItemPreview(ItemId)
+          .waitForElementPresent(dashBoardPage.elements.previewActiveCellData.selector, 5000)
           .verify.cssClassPresent(dashBoardPage.elements.previewActiveCell.selector, 'k-state-disabled', 'Item is Editable')
           .verify.containsText(dashBoardPage.elements.previewActiveCellData.selector, '100', 'Text is not visible');
         previewPublishPage
@@ -226,7 +242,7 @@ describe('Presentation Item Acceptance Test', function(client) {
                 })
          .waitUntilLoaderPresent(function() {
               documentUpload
-                          .closePreviewdocument()
+                          .closePreviewDocument()
          
          })*/
       headerFooterPage.logOut();

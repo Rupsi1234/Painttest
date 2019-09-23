@@ -25,7 +25,12 @@ module.exports = {
         },
 
         publishedID : {
-        	selector: '//div[contains(@class, "paint-header")]//span[contains(@class, "title-tag")][3]//span[2]',
+        	selector: '//span[contains(@class, "title-tag")]//span[contains(text(), "Published ID")]//following::span[1]',
+        	locateStrategy: 'xpath'
+        },
+
+        itemState: {
+        	selector: '//span[contains(@class, "title-tag")]//span[contains(text(), "State")]//following::span[1]',
         	locateStrategy: 'xpath'
         }
 	},
@@ -81,7 +86,7 @@ module.exports = {
 				var temp = this
 				this
 					.api.url(function(current_url) {
-						if(current_url.value.includes('publish')) {
+						if(current_url.value.includes('/publish')) {
 							var selector = '//div[contains(@class, "preview-component") and contains(@class, "transform")]'
 							var previewCloseButton = '//*[contains(@class, "container") and not(contains(@style, "display: none"))]//span[contains(text(), "- Preview")]/following::i[1]'	
 							temp

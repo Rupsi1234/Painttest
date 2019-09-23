@@ -88,15 +88,44 @@ module.exports = {
             return this    
         },
 
-        getHintTextForCell: function(cellRef) {
+        validateHintTextForCell: function(cellRef, hintPos, expectedText) {
             var hintText = []
-            this.api
+            var temp = this
+
+            temp.api
                 .selectCell(cellRef)
                 .waitForElementPresent('div.hintsCardContainer', 10000)
-                .elements('css selector', 'div.hintsCardContainer div.hintsContent.revealed span.text', function(result) {
-                    hintText.push(result.text)
-                }) 
-            return hintText
+                .elements('css selector', 'div.hintsCardContainer div.hintsContent.revealed span.text', function(elementList) {
+                    elementList.value.forEach(function (elem, index) {
+                        temp.api.elementIdText(elem.ELEMENT, function(result) {
+                            hintText.push(result.value)                    
+                            if (index == elementList.value.length - 1) {
+                                temp.api.verify.equal(hintText[hintPos-1], expectedText)
+                            }
+                        })
+                    })
+                })
+            return this
+        },
+
+        validatePenaltyForCell: function(cellRef, hintPos, expectedPenalty) {
+            var penaltyText = []
+            var temp = this
+
+            temp.api
+                .selectCell(cellRef)
+                .waitForElementPresent('div.hintsCardContainer', 10000)
+                .elements('css selector', 'div.hintsCardContainer div.hintsContent.revealed span.marksDeducted', function(elementList) {
+                    elementList.value.forEach(function (elem, index) {
+                        temp.api.elementIdText(elem.ELEMENT, function(result) {
+                            penaltyText.push(result.value)                    
+                            if (index == elementList.value.length - 1) {
+                                temp.api.verify.equal(penaltyText[hintPos-1], "Penalty Marks: " + expectedPenalty)
+                            }
+                        })
+                    })
+                })
+            return this
         }
     }]
 };

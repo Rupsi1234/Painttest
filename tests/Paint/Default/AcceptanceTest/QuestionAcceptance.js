@@ -45,7 +45,7 @@ describe ('Question Item Acceptance Test', function(client) {
         done();
     });
 
-	it('Question Workflow Validation using workbook having multiple sheets', function(client) {
+	it('TC01 - Question Workflow Validation using workbook having multiple sheets', function(client) {
 		var title = "Question-Item - With Multiple Sheets"
 		client
 			.waitUntilLoaderPresent(function() {
@@ -96,14 +96,14 @@ describe ('Question Item Acceptance Test', function(client) {
 					.verify.containsText(properties.get("activeTabText"), "Documents", "Documents Tab is not active") 
 					.uploadDocument("MultiSheet_Start.xlsx", "MultiSheet_Final.xlsx")
 					.verify.containsText(documentUploadPage.elements.submissionStatus1.selector, String("Uploaded on").trim())
-					.openPreviewdocument('1')
+					.openPreviewDocument('1')
                     .verify.containsText(documentUploadPage.elements.previewWindowHeader.selector,'Initial Document')
                     .verify.containsText(documentUploadPage.elements.activeCellData.selector,'c')
-                    .closePreviewdocument()
-                    .openPreviewdocument('2')
+                    .closePreviewDocument()
+                    .openPreviewDocument('2')
                     .verify.containsText(documentUploadPage.elements.previewWindowHeader.selector,'Final Document')
                     .verify.containsText(documentUploadPage.elements.activeCellData.selector,'100')
-                    .closePreviewdocument()
+                    .closePreviewDocument()
 					.click(properties.get("nextButton"));
 			})
 			
@@ -127,9 +127,11 @@ describe ('Question Item Acceptance Test', function(client) {
 					.validateTextForRow("Instruction 1 Text", 1)
 					.closePreview()
 					.publishItem()
-					.verify.containsText("span.title-tag:nth-child(3) span:last-child", "Published", "Item failed to publish")
-					.verify.containsText("span.title-tag:nth-child(4) span:first-child", "Published ID", "Item failed to publish")
-				
+					.api.useXpath()
+					.verify.containsText(previewPublishPage.elements.itemState.selector, "Published", "Item failed to publish")
+					.verify.containsText(previewPublishPage.elements.publishedID.selector, "leo-leonardo-dev", "Item failed to publish")
+					.useCss();
+					
 				getID
 					.getLeonardoID(client)
                     .then(function(value) {
@@ -141,13 +143,14 @@ describe ('Question Item Acceptance Test', function(client) {
 			.waitUntilLoaderPresent(function() {
 	            dashBoardPage
 	                .openItemPreview(ItemId)
+	                .waitForElementPresent(dashBoardPage.elements.previewActiveCellData.selector, 5000)
 	                .verify.containsText(dashBoardPage.elements.previewActiveCellData.selector, 'c', 'Text is not visible');
 	            previewPublishPage
 	            	.closePreview()
 	        }) 
 	});
 
-	it('Question Workflow Validation using workbook having single sheet', function(client) {
+	it('TC02 - Question Workflow Validation using workbook having single sheet', function(client) {
 		var title = "Question-Item - With Single Sheet"
 		client
 			.waitUntilLoaderPresent(function() {
@@ -197,14 +200,14 @@ describe ('Question Item Acceptance Test', function(client) {
 					.verify.containsText(properties.get("activeTabText"), "Documents", "Documents Tab is not active") 
 					.uploadDocument("testfile.xlsx", "testfile_Final.xlsx")
 					.verify.containsText(documentUploadPage.elements.submissionStatus1.selector, String("Uploaded on").trim())
-					.openPreviewdocument('1')
+					.openPreviewDocument('1')
                     .verify.containsText(documentUploadPage.elements.previewWindowHeader.selector,'Initial Document')
                     .verify.containsText(documentUploadPage.elements.activeCellData.selector,'1')
-                    .closePreviewdocument()
-                    .openPreviewdocument('2')
+                    .closePreviewDocument()
+                    .openPreviewDocument('2')
                     .verify.containsText(documentUploadPage.elements.previewWindowHeader.selector,'Final Document')
                     .verify.containsText(documentUploadPage.elements.activeCellData.selector,'1')
-                    .closePreviewdocument()
+                    .closePreviewDocument()
                     .click(properties.get("nextButton"))
 			})
 			
@@ -228,9 +231,11 @@ describe ('Question Item Acceptance Test', function(client) {
 					.validateTextForRow("Instruction 3 Text", 3)
 					.closePreview()
 					.publishItem()
-					.verify.containsText("span.title-tag:nth-child(3) span:last-child", "Published", "Item failed to publish")
-					.verify.containsText("span.title-tag:nth-child(4) span:first-child", "Published ID", "Item failed to publish")
-					
+					.api.useXpath()
+					.verify.containsText(previewPublishPage.elements.itemState.selector, "Published", "Item failed to publish")
+					.verify.containsText(previewPublishPage.elements.publishedID.selector, "leo-leonardo-dev", "Item failed to publish")
+					.useCss();
+
 				getID
 					.getLeonardoID(client)
                     .then(function(value) {
@@ -242,6 +247,7 @@ describe ('Question Item Acceptance Test', function(client) {
 			.waitUntilLoaderPresent(function() {
 	            dashBoardPage
 	                .openItemPreview(ItemId)
+	                .waitForElementPresent(dashBoardPage.elements.previewActiveCellData.selector, 5000)
 	                .verify.containsText(dashBoardPage.elements.previewActiveCellData.selector, '1', 'Text is not visible');
 	            previewPublishPage
 	            	.closePreview()

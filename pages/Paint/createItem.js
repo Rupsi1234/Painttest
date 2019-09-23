@@ -41,7 +41,7 @@ module.exports = {
 		},
 	
 		createItem: function(title,item) {
-			if (item == 'presentation')
+			if (item.toLowerCase() == 'presentation')
 				item = '@presetationItem'
 			else 
 				item = '@questionItem';	

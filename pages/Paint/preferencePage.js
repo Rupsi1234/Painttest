@@ -35,7 +35,7 @@ module.exports ={
 },
  commands : [{
 
- 	selectSheet :function(sheetName)
+ 	selectSheet : function(sheetName)
  	{
  		var a=this
  	 	try {
@@ -44,14 +44,14 @@ module.exports ={
  					.waitForElementVisible('@selectSheetDropdown',20000)
  					.click('@selectSheetDropdown')
         			.api.elements('css selector', '.dropdown-menu--select .dropdown-item', function (result){
-        			result.value.forEach(function(element) {
+        				result.value.forEach(function(element) {
 
-         			a.api.elementIdAttribute(element.ELEMENT, 'innerText', function(res) {
-         					var Sheetname=res.value
-            				if (Sheetname.includes(sheetName) ){
-               				 this
-                				.elementIdClick(element.ELEMENT);
-                   				 }
+         					a.api.elementIdAttribute(element.ELEMENT, 'innerText', function(res) {
+         						var Sheetname=res.value
+            					if (Sheetname.includes(sheetName) ){
+               				 		this
+                						.elementIdClick(element.ELEMENT);
+               				 	}
                    				
               		  		})
             			})
@@ -70,9 +70,10 @@ module.exports ={
 					.waitForElementVisible('@startCell',20000)
 		 			.clearValue('@startCell')
 		 			.setValue('@startCell',start)
+		 		   .click('span.title-tag')
 		 			.clearValue('@endCell')
 		 		   .setValue('@endCell',end)
-		 		   .api.pause(1000)
+		 		   .click('span.title-tag')
 		 		   logger.info(start + " is updated as Start Cell Value")
 		 		   logger.info(end + " is updated as End Cell Value")
 		 	} 
@@ -87,21 +88,22 @@ module.exports ={
 	 	var number=1;
 	 	var test = this.api;
 	 	try {
-             logger.info("Enable the Toggel Button")
+             logger.info("Enable the Toggle Button")
            		this
 						if (checkboxName=='All')
 						{
  						this.api.elements('css selector' ,'.form-control.d-none' ,function(result)
  							{
- 								logger.info("Change the state of All Toggel Button")
+ 								logger.info("Change the state of All Toggle Button")
  		 						result.value.forEach(function(value){
  		 					try{
- 		 						var toggelButton='.panel-body> .row-spacing-checkbox:nth-child('+number+') i'
+ 		 						var toggleButton='.panel-body> .row-spacing-checkbox:nth-child('+number+') i'
  		 						test.moveToElement('.panel-body> .row-spacing-checkbox:nth-child(6) i',288,763)
- 		 						test.waitForElementVisible(toggelButton,30000)
- 		 						test.click(toggelButton)
+ 		 							.waitForElementVisible(toggleButton,30000)
+ 		 							.click(toggleButton)
+ 		 							.waitForElementNotPresent('div.panel:nth-child(2) div.panel-body.disable-toggle', 10000)
  		 						number++;
- 		 						logger.info("All Toggel Button is enabled")
+ 		 						logger.info("All Toggle Button is enabled")
  		 						
  		 					}catch(err)
  		 							{
@@ -116,13 +118,16 @@ module.exports ={
 						{
 							var chcekboxname= ".//div[@class=\"col-sm-6 text-right\"]/../label[text()=\""
 							var checkbox= chcekboxname.concat(checkboxName, "\"]/..//i")
-							logger.info("Enable the " +checkboxName+ " Toggel Button")
-						this.api
+							logger.info("Enable the " +checkboxName+ " Toggle Button")
+							this.api
 								.moveToElement('.panel-body> .row-spacing-checkbox:nth-child(6) i',288,763)
-								.useXpath().waitForElementVisible(checkbox,30000)
-								.useXpath().click(checkbox)
+	 							.waitForElementNotPresent('div.panel:nth-child(2) div.panel-body.disable-toggle', 10000)
+								.useXpath()
+								.waitForElementVisible(checkbox,30000)
+								.click(checkbox)
 								.useCss()
-								logger.info(checkboxName+ " Toggel Button is enabled")
+	 							.waitForElementNotPresent('div.panel:nth-child(2) div.panel-body.disable-toggle', 10000)
+							logger.info(checkboxName+ " Toggle Button is enabled")
 						}
 		}
 		catch (err) {
