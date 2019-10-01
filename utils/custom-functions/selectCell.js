@@ -61,7 +61,7 @@ selectCell.prototype.command = function(cellName, cb) {
     self.api.element('css selector', element, function(result) {
 
         //if the css class of the corresponding cell does not exist call the original select cell criteria
-        if (typeof(result.value.ELEMENT) != "undefined") {
+        if (typeof(result.value.ELEMENT) == "undefined") {
 
             selectingCell();
             return this;
